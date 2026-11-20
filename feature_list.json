@@ -317,7 +317,7 @@
     "steps": [
       ".venv/bin/pytest tests/test_cli.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F36",
@@ -327,7 +327,7 @@
       ".venv/bin/pytest tests/test_action.py",
       "$HOME/go/bin/actionlint"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F37",

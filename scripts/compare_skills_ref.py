@@ -20,13 +20,13 @@ def main() -> int:
     if not exe:
         print("agentskills (skills-ref) is not installed")
         return 1
-    version = subprocess.run([exe, "--version"], capture_output=True, text=True, timeout=30).stdout.strip()
+    version = subprocess.run([exe, "--version"], capture_output=True, text=True, timeout=30).stdout.strip()  # noqa: S603 (fixed argv, no shell)
     manifest = json.loads((ROOT / "examples/flawed/MANIFEST.json").read_text())
     targets = [(f"examples/skills/{d.name}", None) for d in sorted((ROOT / "examples/skills").iterdir()) if d.is_dir()]
     targets += [(v["flawed"], rule) for rule, v in manifest.items()]
     rows = []
     for rel, rule in targets:
-        proc = subprocess.run([exe, "validate", str(ROOT / rel)], capture_output=True, text=True, timeout=60)
+        proc = subprocess.run([exe, "validate", str(ROOT / rel)], capture_output=True, text=True, timeout=60)  # noqa: S603 (fixed argv, repo paths, no shell)
         ref_valid = proc.returncode == 0
         findings = lint_skill(load_skill(ROOT / rel))
         ours_valid = not any(f.severity == "error" for f in findings)

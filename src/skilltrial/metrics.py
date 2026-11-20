@@ -33,7 +33,7 @@ def point(golds: list[str], preds: list[str]) -> dict:
 
 
 def bootstrap(golds: list[str], preds: list[str], n: int = BOOT_N, seed: int = BOOT_SEED) -> dict:
-    rng = random.Random(seed)
+    rng = random.Random(seed)  # noqa: S311 (seeded on purpose, so intervals reproduce, nothing secret)
     idx = range(len(golds))
     samples = {k: [] for k in ("precision", "recall", "f1", "false_trigger_rate")}
     for _ in range(n):

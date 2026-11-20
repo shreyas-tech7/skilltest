@@ -57,7 +57,9 @@ def http_post(url: str, payload: dict, key: str | None, timeout: float = 30) -> 
     headers = {"Content-Type": "application/json"}
     if key:
         headers["Authorization"] = f"Bearer {key}"
-    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")
+    if not url.startswith("https://"):
+        raise ValueError(f"the endpoint must use https: {url}")
+    req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers, method="POST")  # noqa: S310 (scheme checked as https just above)
     try:
         with urllib.request.urlopen(req, timeout=timeout) as r:  # noqa: S310 (fixed https URL)
             return r.status, r.read().decode()
@@ -74,6 +76,8 @@ class LLMSelector:
                  url: str = DEFAULT_URL, post=None, sleep=None):
         if mode not in ("replay", "record"):
             raise ValueError(mode)
+        if not url.startswith("https://"):
+            raise ValueError(f"the endpoint must use https: {url}")
         self.docs, self.model, self.mode, self.url = docs, model, mode, url
         self.dir = Path(recordings) / re.sub(r"[^a-z0-9.-]+", "-", model.lower())
         self.names = [n for n, _ in docs]

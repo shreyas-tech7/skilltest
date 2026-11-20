@@ -1,6 +1,7 @@
 import subprocess
 import sys
 
+import pytest
 from helpers import EXAMPLES, ROOT
 
 from skilltrial.parse import load_skills
@@ -41,3 +42,16 @@ def test_committed_split_matches_the_script():
     proc = subprocess.run([sys.executable, str(ROOT / "scripts/make_split.py"), "--check"], capture_output=True,
                           text=True, timeout=60)
     assert proc.returncode == 0, proc.stdout
+
+
+@pytest.mark.parametrize("text, why", [
+    ("skill: [unclosed\n", "not valid YAML"),
+    ("skill: csv-cleanup\nshould_triger:\n- Clean this CSV\n", "unknown key"),
+    ("skill: csv-cleanup\nshould_trigger: Clean this CSV\n", "must be a list"),
+])
+def test_bad_prompt_file_names_the_file(tmp_path, text, why):
+    """Broken cases: a typo in a key used to drop prompts silently, and bad YAML crashed with a traceback."""
+    (tmp_path / "bad.yaml").write_text(text)
+    with pytest.raises(ValueError, match=why) as e:
+        load_prompts(tmp_path)
+    assert "bad.yaml" in str(e.value)

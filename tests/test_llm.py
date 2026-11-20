@@ -87,3 +87,10 @@ def test_cli_replay_with_fake_recordings(tmp_path, monkeypatch):
     assert main(base + ["--write"]) == OK
     r = json.loads((tmp_path / "res" / "trigger_llm_heldout.json").read_text())
     assert r["selector"] == "llm" and r["metrics"]["recall"]["value"] == 0.0
+
+
+@pytest.mark.parametrize("url", ["http://api.example.test/v1", "file:///etc/passwd", "ftp://x"])
+def test_record_endpoint_must_be_https(url):
+    """Broken case: a non-https endpoint would send the key in clear text or read a local file."""
+    with pytest.raises(ValueError):
+        LLMSelector([("a", "b")], url=url)

@@ -23,7 +23,8 @@ def sub(old, new):
     def f(d: Path):
         p = d / "SKILL.md"
         t = p.read_text(encoding="utf-8")
-        assert old in t, (d, old)
+        if old not in t:
+            raise ValueError(f"{d}: text to change not found: {old!r}")
         p.write_text(t.replace(old, new, 1), encoding="utf-8")
     return f
 

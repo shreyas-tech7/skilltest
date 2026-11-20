@@ -106,3 +106,10 @@ def test_version(capsys):
     with pytest.raises(SystemExit) as e:
         run("--version")
     assert e.value.code == 0 and "skilltrial" in capsys.readouterr().out
+
+
+def test_trigger_malformed_yaml_is_3(tmp_path, capsys):
+    """Broken case: bad YAML in a prompt file printed a traceback and exited 1."""
+    (tmp_path / "x.yaml").write_text("skill: [unclosed\n")
+    assert run("trigger", EXAMPLES, "--prompts", tmp_path) == NO_INPUT
+    assert "x.yaml" in capsys.readouterr().err

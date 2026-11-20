@@ -25,12 +25,24 @@ class Prompt:
     source: str  # the skill whose file holds the prompt
 
 
+PROMPT_KEYS = {"skill", "should_trigger", "should_not_trigger"}
+
+
 def load_prompts(folder: Path) -> list[Prompt]:
     out: list[Prompt] = []
     for f in sorted(Path(folder).glob("*.yaml")):
-        data = yaml.safe_load(f.read_text(encoding="utf-8"))
+        try:
+            data = yaml.safe_load(f.read_text(encoding="utf-8"))
+        except yaml.YAMLError as e:
+            raise ValueError(f"{f}: not valid YAML ({str(e).splitlines()[0]})") from e
         if not isinstance(data, dict) or not isinstance(data.get("skill"), str):
             raise ValueError(f"{f}: needs a mapping with a 'skill' name")
+        extra = sorted(set(data) - PROMPT_KEYS)
+        if extra:
+            raise ValueError(f"{f}: unknown key {', '.join(map(str, extra))} (allowed: {', '.join(sorted(PROMPT_KEYS))})")
+        for key in ("should_trigger", "should_not_trigger"):
+            if data.get(key) is not None and not isinstance(data[key], list):
+                raise ValueError(f"{f}: {key} must be a list of prompts")
         skill = data["skill"]
         for i, t in enumerate(data.get("should_trigger") or []):
             out.append(Prompt(f"{skill}:pos:{i:02d}", str(t), skill, skill))

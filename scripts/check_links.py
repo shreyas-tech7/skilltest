@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP = {".venv", ".git", "node_modules", "graphify-out", "logs", ".pytest_cache", ".ruff_cache"}
 # The build prompt is a verbatim copy, and the reference notes quote formulas, so they are not
 # held to the placeholder rule. Their relative links are still checked.
+# Each flawed variant breaks one spec rule on purpose, and two of those rules are broken links.
+BROKEN_ON_PURPOSE = Path("examples/flawed")
 PLACEHOLDER_EXEMPT = {"docs/build/BUILD_PROMPT.md"}
 PLACEHOLDERS = [r"<owner>", r"\bTODO\b", r"example\.com"]
 MD_LINK = re.compile(r"(?<!!)\[[^\]]*\]\(([^)\s]+)\)|!\[[^\]]*\]\(([^)\s]+)\)")
@@ -21,7 +23,9 @@ HTML_LINK = re.compile(r"""(?:href|src)=["']([^"']+)["']""")
 
 def files():
     for p in sorted(ROOT.rglob("*")):
-        if p.is_file() and p.suffix in (".md", ".html") and not SKIP & set(p.relative_to(ROOT).parts):
+        rel = p.relative_to(ROOT)
+        if p.is_file() and p.suffix in (".md", ".html") and not SKIP & set(rel.parts) \
+                and BROKEN_ON_PURPOSE not in rel.parents:
             yield p
 
 

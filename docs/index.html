@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>skilltrial results</title>
+<style>
+:root { --bg: #f6f7fa; --fg: #182030; --muted: #5a6478; --line: #d4d9e2; --accent: #1f7a62; }
+@media (prefers-color-scheme: dark) { :root { --bg: #141a28; --fg: #e8ecf4; --muted: #a0aabe;
+  --line: #313a4e; --accent: #6ec4aa; } }
+body { background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, sans-serif; margin: 0 auto;
+  max-width: 980px; padding: 24px 16px; }
+table { border-collapse: collapse; width: 100%; display: block; overflow-x: auto; }
+th, td { border-bottom: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+small, .muted { color: var(--muted); }
+pre { white-space: pre-wrap; border: 1px solid var(--line); padding: 12px; font-size: 13px; }
+a { color: var(--accent); }
+</style>
+</head>
+<body>
+<h1>skilltrial</h1>
+<p>skilltrial tests Agent Skills before you ship them. It lints SKILL.md against the spec, estimates the token
+budget, measures whether the description makes the right skill trigger, and flags skills that compete.</p>
+<p>A <b>false trigger</b> is a prompt that should load no skill, where the selector picked one anyway. That skill's
+body then fills the context window for nothing.</p>
+<h2>Trigger results</h2>
+<table><thead><tr><th>Metric</th><th>Tuning<br><small>96 prompts, split seed 20261120</small></th><th>Held-out<br><small>84 prompts, split seed 20261120</small></th><th>Second split, held-out<br><small>84 prompts, split seed 20261121</small></th></tr></thead><tbody><tr><th scope=row>Precision</th><td>0.753 <small>(CI 0.645 to 0.846)</small></td><td>0.897 <small>(CI 0.810 to 0.967)</small></td><td>0.809 <small>(CI 0.714 to 0.901)</small></td></tr><tr><th scope=row>Recall</th><td>0.917 <small>(CI 0.837 to 0.983)</small></td><td>0.867 <small>(CI 0.776 to 0.948)</small></td><td>0.917 <small>(CI 0.839 to 0.983)</small></td></tr><tr><th scope=row>F1</th><td>0.827 <small>(CI 0.741 to 0.894)</small></td><td>0.881 <small>(CI 0.804 to 0.949)</small></td><td>0.859 <small>(CI 0.785 to 0.928)</small></td></tr><tr><th scope=row>False trigger rate</th><td>0.417 <small>(CI 0.261 to 0.579)</small></td><td>0.125 <small>(CI 0.000 to 0.263)</small></td><td>0.417 <small>(CI 0.210 to 0.609)</small></td></tr></tbody></table>
+<p class="muted">Selector: none (BM25, offline). Parameters tuned on the tuning set only: k1 2.0,
+b 1.0, threshold 3.25. Run date 2026-11-20. CI is a 95% percentile bootstrap interval with
+2000 resamples. The prompts are synthetic and written for this repo.</p>
+<h2>Per skill, held-out</h2>
+<table><thead><tr><th>Skill</th><th>Precision</th><th>Recall</th><th>F1</th></tr></thead><tbody><tr><th scope=row>changelog-writer</th><td>1.00</td><td>1.00</td><td>1.00</td></tr><tr><th scope=row>commit-message</th><td>1.00</td><td>0.80</td><td>0.89</td></tr><tr><th scope=row>csv-cleanup</th><td>1.00</td><td>0.60</td><td>0.75</td></tr><tr><th scope=row>dockerfile-review</th><td>0.83</td><td>1.00</td><td>0.91</td></tr><tr><th scope=row>image-resize</th><td>1.00</td><td>0.60</td><td>0.75</td></tr><tr><th scope=row>meeting-notes</th><td>1.00</td><td>0.80</td><td>0.89</td></tr><tr><th scope=row>mock-data</th><td>0.71</td><td>1.00</td><td>0.83</td></tr><tr><th scope=row>regex-builder</th><td>1.00</td><td>1.00</td><td>1.00</td></tr><tr><th scope=row>release-notes</th><td>0.71</td><td>1.00</td><td>0.83</td></tr><tr><th scope=row>sql-helper</th><td>1.00</td><td>0.60</td><td>0.75</td></tr><tr><th scope=row>thumbnail-maker</th><td>0.83</td><td>1.00</td><td>0.91</td></tr><tr><th scope=row>unit-test-writer</th><td>1.00</td><td>1.00</td><td>1.00</td></tr></tbody>
+</table>
+<h2>Most common mistakes, held-out</h2>
+<table><thead><tr><th>Should pick</th><th>Picked</th><th>Count</th></tr></thead><tbody><tr><td>csv-cleanup</td><td>mock-data</td><td>2</td></tr><tr><td>none</td><td>release-notes</td><td>2</td></tr><tr><td>sql-helper</td><td>none</td><td>2</td></tr><tr><td>commit-message</td><td>none</td><td>1</td></tr><tr><td>image-resize</td><td>none</td><td>1</td></tr><tr><td>image-resize</td><td>thumbnail-maker</td><td>1</td></tr><tr><td>meeting-notes</td><td>none</td><td>1</td></tr><tr><td>none</td><td>dockerfile-review</td><td>1</td></tr></tbody></table>
+<h2>Overlapping skills</h2>
+<table><thead><tr><th>Pair</th><th>Description similarity</th><th>Colliding prompts</th><th>Planted</th></tr>
+</thead><tbody><tr><td>mock-data and unit-test-writer</td><td>0.54</td><td>2</td><td>planted</td></tr><tr><td>changelog-writer and release-notes</td><td>0.47</td><td>2</td><td>planted</td></tr><tr><td>image-resize and thumbnail-maker</td><td>0.35</td><td>2</td><td>planted</td></tr><tr><td>dockerfile-review and image-resize</td><td>0.24</td><td>0</td><td>not planted</td></tr><tr><td>changelog-writer and commit-message</td><td>0.17</td><td>2</td><td>not planted</td></tr></tbody></table>
+<h2>Lint output on the examples</h2>
+<pre>$ skilltrial lint examples/skills
+12 skills checked: 0 errors, 0 warnings
+
+$ skilltrial lint examples/flawed   (first 6 lines)
+csv-cleanup: SKL001 error [spec] no SKILL.md in the folder (found skill.md, the name is case sensitive). Fix: add a file named exactly SKILL.md
+commit-message: SKL002 error [spec] SKILL.md does not start with a &#x27;---&#x27; frontmatter block closed by another &#x27;---&#x27; line. Fix: start SKILL.md with a YAML mapping between two &#x27;---&#x27; lines
+image-resize: SKL003 error [spec] name is missing. Fix: add a name field that matches the folder name
+image-resize-and-convert-and-convert-and-convert-and-convert-and-convert-tool: SKL004 error [spec] name has 77 characters, the spec allows 1 to 64. Fix: shorten the name to 64 characters or fewer
+Image_Resize: SKL005 error [spec] name &#x27;Image_Resize&#x27; has characters the spec does not allow: &#x27;IR_&#x27;. Fix: use lowercase letters, digits and hyphens only
+image-resize-: SKL006 error [spec] name &#x27;image-resize-&#x27; starts or ends with a hyphen. Fix: remove the leading or trailing hyphen
+...
+23 skills checked: 13 errors, 12 warnings
+</pre>
+<p class="muted">Written by scripts/make_site.py from the results folder. See the <a href="../README.md">README</a>.</p>
+</body>
+</html>

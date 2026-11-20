@@ -45,6 +45,10 @@ jobs:
         run: |
           .venv/bin/python scripts/make_flawed.py --check
           bash scripts/hand_count.sh --check
+      - name: Results page and social preview match the results files
+        run: |
+          .venv/bin/python scripts/make_site.py --check
+          .venv/bin/python scripts/make_social_preview.py --check
       - name: Links
         run: .venv/bin/python scripts/check_links.py
       - name: The Action itself on the example skills

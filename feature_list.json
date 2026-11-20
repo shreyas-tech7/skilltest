@@ -365,7 +365,7 @@
       ".venv/bin/pytest tests/test_repo_quality.py",
       ".venv/bin/python scripts/check_links.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F41",

@@ -128,6 +128,9 @@ def build(out: Path) -> dict:
         dest = out / rule / folder
         shutil.copytree(CLEAN / clean, dest)
         mutate(dest)
+        for d in sorted(dest.rglob("*"), reverse=True):  # git keeps no empty folders, so the script must not make any
+            if d.is_dir() and not any(d.iterdir()):
+                d.rmdir()
         manifest[rule] = {"flawed": f"examples/flawed/{rule}/{folder}", "fixed": f"examples/skills/{clean}",
                           "change": change}
     (out / "MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

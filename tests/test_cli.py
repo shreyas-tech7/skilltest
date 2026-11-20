@@ -113,3 +113,32 @@ def test_trigger_malformed_yaml_is_3(tmp_path, capsys):
     (tmp_path / "x.yaml").write_text("skill: [unclosed\n")
     assert run("trigger", EXAMPLES, "--prompts", tmp_path) == NO_INPUT
     assert "x.yaml" in capsys.readouterr().err
+
+
+def test_tuned_settings_apply_only_to_the_skills_they_were_tuned_on(tmp_path, capsys):
+    """Broken case: run from the repo root, trigger on other skills used the example-tuned settings."""
+    import shutil
+
+    skills = tmp_path / "mine"
+    shutil.copytree(ROOT / "examples/skills/csv-cleanup", skills / "csv-cleanup")
+    shutil.copytree(ROOT / "examples/skills/sql-helper", skills / "sql-helper")
+    trig = tmp_path / "trig"
+    trig.mkdir()
+    for s in ("csv-cleanup", "sql-helper"):
+        shutil.copy(ROOT / f"examples/triggers/{s}.yaml", trig)
+    assert run("trigger", skills, "--prompts", trig, "--results", ROOT / "results", "--split", "all") == OK
+    out = capsys.readouterr()
+    assert "k1': 1.2" in out.out and "untuned" in out.err
+    assert run("trigger", EXAMPLES, "--results", ROOT / "results") == OK
+    assert "k1': 2.0" in capsys.readouterr().out
+
+
+def test_small_split_warns_about_the_interval(tmp_path, capsys):
+    """Broken case: a tiny held-out split printed a 1.000 to 1.000 interval with no warning."""
+    import shutil
+
+    trig = tmp_path / "trig"
+    trig.mkdir()
+    shutil.copy(ROOT / "examples/triggers/csv-cleanup.yaml", trig)
+    assert run("trigger", EXAMPLES, "--prompts", trig, "--results", tmp_path, "--split", "heldout") == OK
+    assert "too few prompts" in capsys.readouterr().err

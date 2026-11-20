@@ -48,7 +48,8 @@ def tune(skills: list[Skill], tuning: list[Prompt]) -> dict:
                 grid.append({"k1": k1, "b": b, "threshold": t, "f1": round(f1, 4)})
                 if best is None or f1 > best["f1"] + 1e-12:
                     best = {"k1": k1, "b": b, "threshold": t, "f1": f1}
-    return {"selector": "bm25", "tuned_on": "tuning", "n_prompts": len(tuning), "best": best,
+    return {"selector": "bm25", "tuned_on": "tuning", "skills": sorted(n for n, _ in docs), "n_prompts": len(tuning),
+            "best": best,
             "grid_points": len(grid), "grid": grid}
 
 

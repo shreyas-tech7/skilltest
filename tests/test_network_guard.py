@@ -20,10 +20,12 @@ def test_guard_allows_loopback():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind(("127.0.0.1", 0))
     server.listen(1)
+    server.settimeout(5)  # never hang the suite if loopback is down
     port = server.getsockname()[1]
-    t = threading.Thread(target=lambda: server.accept()[0].close())
+    t = threading.Thread(target=lambda: server.accept()[0].close(), daemon=True)
     t.start()
     c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    c.settimeout(5)
     c.connect(("127.0.0.1", port))
     c.close()
     t.join(timeout=5)

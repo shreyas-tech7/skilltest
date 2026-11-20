@@ -1,6 +1,20 @@
 {
  "selector": "bm25",
  "tuned_on": "tuning",
+ "skills": [
+  "changelog-writer",
+  "commit-message",
+  "csv-cleanup",
+  "dockerfile-review",
+  "image-resize",
+  "meeting-notes",
+  "mock-data",
+  "regex-builder",
+  "release-notes",
+  "sql-helper",
+  "thumbnail-maker",
+  "unit-test-writer"
+ ],
  "n_prompts": 96,
  "best": {
   "k1": 0.6,

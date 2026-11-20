@@ -2,13 +2,27 @@ name: CI
 
 on:
   push:
-    paths-ignore:
+    paths-ignore:  # notes only. SKILL.md files and README.md are checked, so they still run CI
       - "docs/**"
-      - "**.md"
+      - "CHANGELOG.md"
+      - "CONTRIBUTING.md"
+      - "DECISIONS.md"
+      - "BLOCKERS.md"
+      - "HANDOVER.md"
+      - "PROGRESS.md"
+      - "PROJECT_CONTEXT.md"
+      - "CLAUDE.md"
   pull_request:
-    paths-ignore:
+    paths-ignore:  # notes only. SKILL.md files and README.md are checked, so they still run CI
       - "docs/**"
-      - "**.md"
+      - "CHANGELOG.md"
+      - "CONTRIBUTING.md"
+      - "DECISIONS.md"
+      - "BLOCKERS.md"
+      - "HANDOVER.md"
+      - "PROGRESS.md"
+      - "PROJECT_CONTEXT.md"
+      - "CLAUDE.md"
   workflow_dispatch:
 
 concurrency:

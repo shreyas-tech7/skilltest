@@ -147,3 +147,55 @@ def test_study_walkthrough_tours_every_file():
     names = {Path(f).name for f in tracked if not f.startswith(skip)}
     names |= {"WALKTHROUGH.md", "INTERVIEW_QA.md", "RELEASE_CHECK.md", "HUMAN_STEPS.md", "COWORK_PROMPT.md"}
     assert sorted(n for n in names if n not in text) == []
+
+
+RELEASE = ["docs/RELEASE_CHECK.md", "docs/HUMAN_STEPS.md", "docs/handoff/COWORK_PROMPT.md", "HANDOVER.md"]
+HANDOFF = {"CHANGELOG.md", "docs/HUMAN_STEPS.md", "HANDOVER.md", "PROGRESS.md", "docs/RELEASE_CHECK.md"}
+
+
+def test_release_files_exist():
+    assert [f for f in RELEASE if not (ROOT / f).is_file()] == []
+
+
+def _release_line(path: Path) -> str:
+    m = re.search(r"^Release commit: (.+?)\.?$", path.read_text(), flags=re.M)
+    assert m, f"no release commit line in {path.name}"
+    return m.group(1).strip()
+
+
+def test_release_sha_is_recorded():
+    """The release commit says "this commit". The next commit records the full SHA, and only hand-off
+    files change after it, so the tagged tree passes its own tests."""
+    lines = {_release_line(ROOT / f) for f in ("CHANGELOG.md", "docs/HUMAN_STEPS.md", "HANDOVER.md")}
+    assert len(lines) == 1, lines
+    line = lines.pop()
+    steps = (ROOT / "docs/HUMAN_STEPS.md").read_text()
+    assert "v0.1.0-rc1" in steps and "public" in steps.lower() and "PyPI" in steps
+    if line.startswith("this commit"):
+        return
+    assert re.fullmatch(r"[0-9a-f]{40}", line), line
+    assert "RELEASE_SHA" not in steps and line in steps
+    if not (ROOT / ".git").exists():
+        return
+    git = ["git", "-C", str(ROOT)]
+    if subprocess.run(git + ["cat-file", "-e", line + "^{commit}"], capture_output=True, timeout=30).returncode:
+        pytest.skip("shallow clone: the release commit is not fetched")
+    ok = subprocess.run(git + ["merge-base", "--is-ancestor", line, "HEAD"], capture_output=True, timeout=30)
+    assert ok.returncode == 0, "the release commit is not in the history of HEAD"
+    changed = subprocess.run(git + ["diff", "--name-only", line, "HEAD"], capture_output=True, text=True,
+                             timeout=30).stdout.split()
+    assert set(changed) <= HANDOFF, set(changed) - HANDOFF
+
+
+def test_release_cowork_prompt_has_guards_and_launcher():
+    text = (ROOT / "docs/handoff/COWORK_PROMPT.md").read_text()
+    for need in ("make the repo public", "publish a package", "enter any key", "sign in for Shreyas", "pay for",
+                 "Resume from PROGRESS.md on branch claude/build-skilltest"):
+        assert need in text, need
+
+
+def test_release_check_lists_every_tool():
+    text = (ROOT / "docs/RELEASE_CHECK.md").read_text()
+    assert "PENDING" not in text
+    for tool in ("gitleaks", "pip-audit", "ruff check --select S", "actionlint", "check_links", "Outside check"):
+        assert tool in text, tool

@@ -109,9 +109,9 @@ Thresholds fixed before the first run: description similarity 0.2 or more, or 2 
 | changelog-writer and commit-message | no | 0.17 | 2 | ask, commit, git, user, writ |
 <!-- END:overlap -->
 
-### Lint output from CI
+### Lint output
 
-CI runs `skilltrial lint examples/skills`. The same run over the flawed variants shows what findings look like.
+CI runs `skilltrial lint examples/skills` on every push. The block below is the same command run locally and saved in `results/lint_examples.txt` by `skilltrial readme`. The run over the flawed variants shows what findings look like.
 
 <!-- BEGIN:lint -->
 ```text
@@ -170,13 +170,15 @@ BM25 and lint run locally. No API calls, so the cost is zero.
 
 ## 10-minute run guide
 
+The repo is private for now, so the clone works only for people with access until it goes public.
+
 ```bash
 git clone https://github.com/shreyas-tech7/skilltest.git
 cd skilltest
 ./init.sh                                   # venv, install, ruff, every test offline
 source .venv/bin/activate
 skilltrial lint examples/skills             # spec lint, exit 1 on any error
-skilltrial lint examples/flawed --strict    # see every rule fire
+skilltrial lint examples/flawed --strict    # see every rule fire (exits 1, as it should)
 skilltrial budget examples/skills           # token estimates
 skilltrial trigger examples/skills          # held-out precision, recall, F1
 skilltrial overlap examples/skills          # competing descriptions
@@ -234,7 +236,7 @@ repos:
 - BM25 matches words, not meaning. It misses paraphrases with no shared words and it is fooled by shared boilerplate such as "use when the user".
 - The BM25 baseline is not the selector a real agent uses. Real agents use a language model. The LLM selector exists but record mode could not run here, so no LLM numbers are reported.
 - Token counts are estimates (characters divided by 4). Real tokenizers differ, more so for code and non-English text.
-- The overlap detector flags one pair that is not planted because the word "image" means a container image in one skill and a picture in the other.
+- The overlap detector also flags pairs that were not planted. The dockerfile-review and image-resize pair is a false alarm, because "image" means a container image in one skill and a picture in the other. The changelog-writer and commit-message pair is a fair flag, because both answer requests about git history.
 - The spec can change. The rules follow the spec text fetched on the date in [docs/SPEC.md](docs/SPEC.md).
 
 ## Glossary

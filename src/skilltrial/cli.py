@@ -19,6 +19,7 @@ from .selector import BM25Selector
 
 SPLITS = ("tuning", "heldout", "all")
 SEED2 = 20261121
+MIN_PROMPTS = 30
 
 OK, FINDINGS, USAGE, NO_INPUT = 0, 1, 2, 3
 
@@ -69,9 +70,14 @@ def _prompts(a):
 
 
 def _selector(docs, params_file: Path | None):
+    """Use tuned settings only for the exact skill set they were tuned on. Other skills get the defaults."""
     if params_file and params_file.exists():
-        b = json.loads(params_file.read_text())["best"]
-        return BM25Selector(docs, b["k1"], b["b"], b["threshold"])
+        tuned = json.loads(params_file.read_text())
+        if tuned.get("skills") == sorted(n for n, _ in docs):
+            b = tuned["best"]
+            return BM25Selector(docs, b["k1"], b["b"], b["threshold"])
+        print(f"skilltrial: {params_file} was tuned on other skills, so this run is untuned "
+              "(BM25 defaults). Run with --write to tune on your own prompts.", file=sys.stderr)
     return BM25Selector(docs)
 
 
@@ -121,6 +127,9 @@ def cmd_trigger(a) -> int:
     docs = skill_docs(skills)
     sel = _selector(docs, results / "tuning_bm25.json" if not a.untuned else None)
     r = result(sel, subset(prompts, split, a.split), a.split, [n for n, _ in docs])
+    if r["n_prompts"] < MIN_PROMPTS:
+        print(f"skilltrial: only {r['n_prompts']} prompts in split {a.split}, too few prompts for a useful interval. "
+              "Add prompts or use --split all.", file=sys.stderr)
     if a.json:
         print(json.dumps(r, indent=1))
     else:

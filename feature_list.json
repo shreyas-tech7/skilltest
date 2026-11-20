@@ -346,7 +346,7 @@
       ".venv/bin/skilltrial readme --check",
       ".venv/bin/pytest tests/test_readme_sync.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F39",

@@ -1,0 +1,14 @@
+{
+ "date": "2026-11-20",
+ "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "cores_used": 2,
+ "python": "3.13.18",
+ "repeats": 5,
+ "lint_12_skills_ms": 6.58,
+ "lint_per_skill_ms": 0.549,
+ "trigger_prompts": 180,
+ "trigger_all_ms": 2.69,
+ "trigger_per_prompt_ms": 0.0149,
+ "cost_usd": 0.0,
+ "cost_note": "BM25 and lint run locally. No API calls, so the cost is zero."
+}

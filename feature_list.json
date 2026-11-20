@@ -308,7 +308,7 @@
       ".venv/bin/pytest tests/test_overlap.py",
       ".venv/bin/skilltrial overlap examples/skills --check"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F35",

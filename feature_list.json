@@ -7,7 +7,7 @@
       "./init.sh",
       ".venv/bin/pytest tests/test_network_guard.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F02",
@@ -16,7 +16,7 @@
     "steps": [
       ".venv/bin/skilltrial lint examples/skills"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F03",
@@ -26,7 +26,7 @@
       ".venv/bin/python scripts/make_flawed.py --check",
       ".venv/bin/pytest tests/test_flawed.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F04",
@@ -35,7 +35,7 @@
     "steps": [
       ".venv/bin/pytest tests/test_parse.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F05",

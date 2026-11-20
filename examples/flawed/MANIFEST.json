@@ -1,0 +1,117 @@
+{
+  "SKL001": {
+    "flawed": "examples/flawed/SKL001/csv-cleanup",
+    "fixed": "examples/skills/csv-cleanup",
+    "change": "SKILL.md renamed to skill.md"
+  },
+  "SKL002": {
+    "flawed": "examples/flawed/SKL002/commit-message",
+    "fixed": "examples/skills/commit-message",
+    "change": "the two '---' frontmatter lines removed"
+  },
+  "SKL003": {
+    "flawed": "examples/flawed/SKL003/image-resize",
+    "fixed": "examples/skills/image-resize",
+    "change": "name line removed"
+  },
+  "SKL004": {
+    "flawed": "examples/flawed/SKL004/image-resize-and-convert-and-convert-and-convert-and-convert-and-convert-tool",
+    "fixed": "examples/skills/image-resize",
+    "change": "name and folder are 77 characters"
+  },
+  "SKL005": {
+    "flawed": "examples/flawed/SKL005/Image_Resize",
+    "fixed": "examples/skills/image-resize",
+    "change": "name uses uppercase and an underscore"
+  },
+  "SKL006": {
+    "flawed": "examples/flawed/SKL006/image-resize-",
+    "fixed": "examples/skills/image-resize",
+    "change": "name ends with a hyphen"
+  },
+  "SKL007": {
+    "flawed": "examples/flawed/SKL007/image--resize",
+    "fixed": "examples/skills/image-resize",
+    "change": "name has a double hyphen"
+  },
+  "SKL008": {
+    "flawed": "examples/flawed/SKL008/image-resizer",
+    "fixed": "examples/skills/image-resize",
+    "change": "folder renamed so it no longer matches the name"
+  },
+  "SKL009": {
+    "flawed": "examples/flawed/SKL009/meeting-notes",
+    "fixed": "examples/skills/meeting-notes",
+    "change": "description set to an empty string"
+  },
+  "SKL010": {
+    "flawed": "examples/flawed/SKL010/image-resize",
+    "fixed": "examples/skills/image-resize",
+    "change": "description repeated to 1127 characters"
+  },
+  "SKL011": {
+    "flawed": "examples/flawed/SKL011/csv-cleanup",
+    "fixed": "examples/skills/csv-cleanup",
+    "change": "compatibility of 600 characters added"
+  },
+  "SKL012": {
+    "flawed": "examples/flawed/SKL012/csv-cleanup",
+    "fixed": "examples/skills/csv-cleanup",
+    "change": "metadata value is a number, not a string"
+  },
+  "SKL013": {
+    "flawed": "examples/flawed/SKL013/csv-cleanup",
+    "fixed": "examples/skills/csv-cleanup",
+    "change": "allowed-tools written as a YAML list"
+  },
+  "SKL101": {
+    "flawed": "examples/flawed/SKL101/commit-message",
+    "fixed": "examples/skills/commit-message",
+    "change": "520 filler lines appended to the body"
+  },
+  "SKL102": {
+    "flawed": "examples/flawed/SKL102/commit-message",
+    "fixed": "examples/skills/commit-message",
+    "change": "100 long filler lines appended (about 5,400 more tokens)"
+  },
+  "SKL103": {
+    "flawed": "examples/flawed/SKL103/image-resize",
+    "fixed": "examples/skills/image-resize",
+    "change": "description grown to about 130 tokens"
+  },
+  "SKL104": {
+    "flawed": "examples/flawed/SKL104/changelog-writer",
+    "fixed": "examples/skills/changelog-writer",
+    "change": "references/FORMAT.md now links to references/EXAMPLES.md"
+  },
+  "SKL105": {
+    "flawed": "examples/flawed/SKL105/sql-helper",
+    "fixed": "examples/skills/sql-helper",
+    "change": "the 'Use when' sentence removed from the description"
+  },
+  "SKL106": {
+    "flawed": "examples/flawed/SKL106/dockerfile-review",
+    "fixed": "examples/skills/dockerfile-review",
+    "change": "checklist link points outside the skill folder"
+  },
+  "SKL201": {
+    "flawed": "examples/flawed/SKL201/csv-cleanup",
+    "fixed": "examples/skills/csv-cleanup",
+    "change": "top-level version field added"
+  },
+  "SKL202": {
+    "flawed": "examples/flawed/SKL202/csv-cleanup",
+    "fixed": "examples/skills/csv-cleanup",
+    "change": "description cut to 28 characters"
+  },
+  "SKL203": {
+    "flawed": "examples/flawed/SKL203/regex-builder",
+    "fixed": "examples/skills/regex-builder",
+    "change": "scripts/test_regex.py deleted"
+  },
+  "SKL204": {
+    "flawed": "examples/flawed/SKL204/thumbnail-maker",
+    "fixed": "examples/skills/thumbnail-maker",
+    "change": "body removed"
+  }
+}

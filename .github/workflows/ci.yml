@@ -1,0 +1,53 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "docs/**"
+      - "**.md"
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install uv
+        run: python -m pip install uv
+      - name: init.sh (install, lint, all tests offline)
+        run: ./init.sh
+      - name: Lint the example skills
+        run: .venv/bin/skilltrial lint examples/skills
+      - name: Budget report for the example skills
+        run: .venv/bin/skilltrial budget examples/skills --strict
+      - name: Trigger results match a fresh run
+        run: .venv/bin/skilltrial trigger examples/skills --check
+      - name: Overlap results match a fresh run
+        run: .venv/bin/skilltrial overlap examples/skills --check
+      - name: README tables match the results files
+        run: .venv/bin/skilltrial readme --check
+      - name: Flawed variants and hand counts match their scripts
+        run: |
+          .venv/bin/python scripts/make_flawed.py --check
+          bash scripts/hand_count.sh --check
+      - name: Links
+        run: .venv/bin/python scripts/check_links.py
+      - name: The Action itself on the example skills
+        uses: ./
+        with:
+          path: examples/skills

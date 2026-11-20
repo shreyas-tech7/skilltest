@@ -1,0 +1,8 @@
+- id: skilltrial-lint
+  name: skilltrial lint
+  description: Lint Agent Skills (SKILL.md files) against the spec.
+  entry: skilltrial lint
+  language: python
+  pass_filenames: false
+  args: ["."]
+  files: (^|/)SKILL\.md$

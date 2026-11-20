@@ -1,0 +1,442 @@
+{
+ "date": "2026-11-20",
+ "skills_ref_version": "agentskills, version 0.1.1",
+ "n": 35,
+ "agree": 31,
+ "disagree": [
+  {
+   "skill": "examples/flawed/SKL001/csv-cleanup",
+   "planted_rule": "SKL001",
+   "skills_ref_valid": true,
+   "skilltrial_valid": false,
+   "agree": false,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL001"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL012/csv-cleanup",
+   "planted_rule": "SKL012",
+   "skills_ref_valid": true,
+   "skilltrial_valid": false,
+   "agree": false,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL012"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL013/csv-cleanup",
+   "planted_rule": "SKL013",
+   "skills_ref_valid": true,
+   "skilltrial_valid": false,
+   "agree": false,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL013"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL201/csv-cleanup",
+   "planted_rule": "SKL201",
+   "skills_ref_valid": false,
+   "skilltrial_valid": true,
+   "agree": false,
+   "skills_ref_messages": [
+    "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+   ],
+   "skilltrial_rules": [
+    "SKL201"
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "skill": "examples/skills/changelog-writer",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/commit-message",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/csv-cleanup",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/dockerfile-review",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/image-resize",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/meeting-notes",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/mock-data",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/regex-builder",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/release-notes",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/sql-helper",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/thumbnail-maker",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/skills/unit-test-writer",
+   "planted_rule": null,
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": []
+  },
+  {
+   "skill": "examples/flawed/SKL001/csv-cleanup",
+   "planted_rule": "SKL001",
+   "skills_ref_valid": true,
+   "skilltrial_valid": false,
+   "agree": false,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL001"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL002/commit-message",
+   "planted_rule": "SKL002",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "SKILL.md must start with YAML frontmatter (---)"
+   ],
+   "skilltrial_rules": [
+    "SKL002"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL003/image-resize",
+   "planted_rule": "SKL003",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Missing required field in frontmatter: name"
+   ],
+   "skilltrial_rules": [
+    "SKL003"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL004/image-resize-and-convert-and-convert-and-convert-and-convert-and-convert-tool",
+   "planted_rule": "SKL004",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Skill name 'image-resize-and-convert-and-convert-and-convert-and-convert-and-convert-tool' exceeds 64 character limit (77 chars)"
+   ],
+   "skilltrial_rules": [
+    "SKL004"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL005/Image_Resize",
+   "planted_rule": "SKL005",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Skill name 'Image_Resize' must be lowercase",
+    "Skill name 'Image_Resize' contains invalid characters. Only letters, digits, and hyphens are allowed."
+   ],
+   "skilltrial_rules": [
+    "SKL005"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL006/image-resize-",
+   "planted_rule": "SKL006",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Skill name cannot start or end with a hyphen"
+   ],
+   "skilltrial_rules": [
+    "SKL006"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL007/image--resize",
+   "planted_rule": "SKL007",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Skill name cannot contain consecutive hyphens"
+   ],
+   "skilltrial_rules": [
+    "SKL007"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL008/image-resizer",
+   "planted_rule": "SKL008",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Directory name 'image-resizer' must match skill name 'image-resize'"
+   ],
+   "skilltrial_rules": [
+    "SKL008"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL009/meeting-notes",
+   "planted_rule": "SKL009",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Field 'description' must be a non-empty string"
+   ],
+   "skilltrial_rules": [
+    "SKL009"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL010/image-resize",
+   "planted_rule": "SKL010",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Description exceeds 1024 character limit (1127 chars)"
+   ],
+   "skilltrial_rules": [
+    "SKL010",
+    "SKL103",
+    "SKL105"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL011/csv-cleanup",
+   "planted_rule": "SKL011",
+   "skills_ref_valid": false,
+   "skilltrial_valid": false,
+   "agree": true,
+   "skills_ref_messages": [
+    "Compatibility exceeds 500 character limit (600 chars)"
+   ],
+   "skilltrial_rules": [
+    "SKL011"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL012/csv-cleanup",
+   "planted_rule": "SKL012",
+   "skills_ref_valid": true,
+   "skilltrial_valid": false,
+   "agree": false,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL012"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL013/csv-cleanup",
+   "planted_rule": "SKL013",
+   "skills_ref_valid": true,
+   "skilltrial_valid": false,
+   "agree": false,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL013"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL101/commit-message",
+   "planted_rule": "SKL101",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL101"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL102/commit-message",
+   "planted_rule": "SKL102",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL102"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL103/image-resize",
+   "planted_rule": "SKL103",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL103"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL104/changelog-writer",
+   "planted_rule": "SKL104",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL104"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL105/sql-helper",
+   "planted_rule": "SKL105",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL105"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL106/dockerfile-review",
+   "planted_rule": "SKL106",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL106"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL201/csv-cleanup",
+   "planted_rule": "SKL201",
+   "skills_ref_valid": false,
+   "skilltrial_valid": true,
+   "agree": false,
+   "skills_ref_messages": [
+    "Unexpected fields in frontmatter: version. Only ['allowed-tools', 'compatibility', 'description', 'license', 'metadata', 'name'] are allowed."
+   ],
+   "skilltrial_rules": [
+    "SKL201"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL202/csv-cleanup",
+   "planted_rule": "SKL202",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL202"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL203/regex-builder",
+   "planted_rule": "SKL203",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL203"
+   ]
+  },
+  {
+   "skill": "examples/flawed/SKL204/thumbnail-maker",
+   "planted_rule": "SKL204",
+   "skills_ref_valid": true,
+   "skilltrial_valid": true,
+   "agree": true,
+   "skills_ref_messages": [],
+   "skilltrial_rules": [
+    "SKL204"
+   ]
+  }
+ ]
+}

@@ -374,7 +374,7 @@
     "steps": [
       ".venv/bin/pytest tests/test_repo_quality.py -k study"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F42",

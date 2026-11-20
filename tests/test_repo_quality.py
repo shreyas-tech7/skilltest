@@ -116,3 +116,34 @@ def test_readme_parts_in_order():
     assert "actions/workflows/ci.yml/badge.svg" in text.split("**Status:**")[0]
     assert "95%" in text.split("## Results")[1].split("## Cost per task")[0]
     assert "not done yet" in text.split("## How this was built")[1]
+
+
+STUDY = ["docs/WALKTHROUGH.md", "docs/INTERVIEW_QA.md", "DECISIONS.md"]
+
+
+def test_study_kit_exists():
+    assert [f for f in STUDY if not (ROOT / f).is_file()] == []
+
+
+def test_study_interview_qa_covers_the_points():
+    qa = (ROOT / "docs/INTERVIEW_QA.md").read_text().lower()
+    assert qa.count("\n## ") >= 12
+    for point in ("progressive disclosure", "precision and recall", "false trigger"):
+        assert point in qa, point
+    assert "src/skilltrial/" in qa and "results/" in qa
+
+
+def test_study_qa_cites_real_paths():
+    qa = (ROOT / "docs/INTERVIEW_QA.md").read_text()
+    paths = set(re.findall(r"`((?:src|results|scripts|tests|examples|docs)/[^`\s]+?)/?`", qa))
+    assert paths and [p for p in paths if not (ROOT / p).exists()] == []
+
+
+def test_study_walkthrough_tours_every_file():
+    text = (ROOT / "docs/WALKTHROUGH.md").read_text()
+    tracked = subprocess.run(["git", "-C", str(ROOT), "ls-files"], capture_output=True, text=True,
+                             timeout=30).stdout.split()
+    skip = ("examples/skills/", "examples/flawed/", "examples/triggers/", "tests/fixtures/", ".github/ISSUE_TEMPLATE/")
+    names = {Path(f).name for f in tracked if not f.startswith(skip)}
+    names |= {"WALKTHROUGH.md", "INTERVIEW_QA.md", "RELEASE_CHECK.md", "HUMAN_STEPS.md", "COWORK_PROMPT.md"}
+    assert sorted(n for n in names if n not in text) == []

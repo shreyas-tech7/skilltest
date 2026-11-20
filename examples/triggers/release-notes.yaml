@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: release-notes
+should_trigger:
+- Write release notes for version 4.2 that our customers will read
+- Draft the announcement for the new release with the three biggest highlights
+- We are shipping 2.0 tomorrow, write the user-facing notes with upgrade steps
+- Turn these merged pull requests into release notes for end users
+- Summarize what changed since the last release for the blog post
+- Write the GitHub release description for v1.8.0
+- List the breaking changes in this version and how users should upgrade
+- Make the what's new note for the app store update
+- Thank the outside contributors in the release notes
+- Give me a short release announcement for the mailing list
+should_not_trigger:
+- Plan the release schedule for next quarter
+- What day of the week is best to ship a release?
+- Write a press release about our new office
+- Release the lock on this database table
+- How do I publish a package to PyPI?

@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: dockerfile-review
+should_trigger:
+- Review my Dockerfile
+- Why is my container image 2 GB?
+- My Docker build is slow, every change reinstalls the packages
+- Is it bad that this container runs as root?
+- Should I pin the base image in this Dockerfile?
+- Check this Dockerfile for secrets passed as build args
+- Turn this Dockerfile into a multi-stage build to shrink it
+- What would you change in this Dockerfile before production?
+- Fix the layer order in my Dockerfile so caching works
+- Audit the Dockerfile in this repo
+should_not_trigger:
+- Install Docker on Ubuntu
+- What is the difference between Docker and a VM?
+- Deploy my container to Kubernetes
+- Stop all running containers
+- Write a docker compose file for Postgres and Redis

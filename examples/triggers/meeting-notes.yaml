@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: meeting-notes
+should_trigger:
+- Turn this call transcript into notes with action items
+- Here are my rough notes from standup, make them readable
+- Who owns what after this meeting? Transcript below
+- Write meeting minutes from this recording text
+- Pull the decisions out of this transcript
+- Summarize this planning meeting in five lines with owners
+- List the open questions nobody answered in this call
+- Make notes from this Zoom transcript for people who missed it
+- Clean up my notes from the client call
+- What did we agree on in this meeting? Notes pasted below
+should_not_trigger:
+- Schedule a meeting with the design team for Friday
+- How do I turn on recording in Zoom?
+- Write an agenda for tomorrow's offsite
+- Book a meeting room for 10 people
+- Take notes for my history exam

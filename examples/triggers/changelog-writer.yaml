@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: changelog-writer
+should_trigger:
+- Update CHANGELOG.md with everything we merged this week
+- Add the last 12 commits to the changelog under Unreleased
+- Sort these commit messages into Added, Changed and Fixed for the changelog
+- Our changelog is three versions behind, can you catch it up from git log?
+- Write the changelog entry for the fix to the login timeout bug
+- Turn the output of git log v2.1.0..HEAD into Keep a Changelog format
+- We forgot to log the deprecations in the changelog, add them
+- Make a changelog section for 3.0.0 dated today from these commits
+- What should go in the Fixed section of the changelog for this sprint?
+- Summarize the changes since the last release for CHANGELOG.md
+should_not_trigger:
+- What is semantic versioning and when do I bump the major number?
+- Delete the old entries from 2019 in our wiki page
+- How do I tag a release in git?
+- Explain what a merge commit is
+- Rename the master branch to main

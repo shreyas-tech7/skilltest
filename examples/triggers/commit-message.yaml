@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: commit-message
+should_trigger:
+- Write a commit message for my staged changes
+- Reword this commit message so it explains why
+- Give me a good subject line for this diff
+- What should the commit say for this bug fix?
+- Turn this diff into a commit message under 50 characters
+- Help me write the git commit for these two changed files
+- 'Is this commit message any good: fixed stuff'
+- Commit message for adding the retry logic, please
+- Write the commit body for this refactor
+- Should this diff be one commit or two? Write the messages
+should_not_trigger:
+- Undo my last git commit
+- How do I install git on Windows?
+- Write an email to my team about the outage
+- Explain what git rebase does
+- Set up a pre-commit hook for black

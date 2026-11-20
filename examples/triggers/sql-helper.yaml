@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: sql-helper
+should_trigger:
+- Write a SQL query that returns the top 5 customers by total order value
+- Why is this Postgres query so slow? Here is the EXPLAIN ANALYZE output
+- Explain what this LEFT JOIN does
+- Should I add an index on orders.created_at?
+- Give me a running total per month using a window function
+- Translate this query from PostgreSQL to SQLite
+- Design a schema for users, posts and comments
+- How do I find duplicate emails in the users table?
+- Rewrite this self join as a window function
+- Write a query to count signups per day for the last 30 days
+should_not_trigger:
+- What is the difference between a database and a spreadsheet?
+- Install PostgreSQL on my Mac
+- Back up my laptop to an external drive
+- Write a Python function that sorts a list
+- What does NoSQL mean?

@@ -271,7 +271,7 @@
     "steps": [
       ".venv/bin/pytest tests/test_prompts.py"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F31",

@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: image-resize
+should_trigger:
+- Resize this photo to 1200 pixels wide
+- Convert these PNG files to WebP
+- Shrink the images in this folder so they are under 200 KB
+- Crop this picture to 16:9
+- Make a smaller version of this JPEG for email
+- Change the format of logo.png to JPEG
+- Scale this image down by half and keep the aspect ratio
+- My hero image is 8 MB, make it web sized
+- Resize all the screenshots to 800 by 600
+- Remove the GPS data and resize this photo for the blog
+should_not_trigger:
+- What camera should I buy for travel?
+- Draw me a logo for a coffee shop
+- Describe what is in this image
+- How do I take a screenshot on Linux?
+- Find photos of the Eiffel Tower

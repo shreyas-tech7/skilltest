@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: unit-test-writer
+should_trigger:
+- Write pytest tests for this parse_date function
+- Add unit tests for the edge cases of this function
+- Increase test coverage for utils.py
+- Write a fixture for a temporary config file and tests that use it
+- Test that this function raises ValueError on bad input
+- I need tests for the empty list and single item cases
+- Write unit tests with some test data for the invoice total function
+- Make a conftest.py fixture and three tests for the cache class
+- Cover the error paths of this function with pytest
+- How would you unit test this function? Write the tests
+should_not_trigger:
+- Run the test suite in CI on every push
+- Why is my laptop running hot during tests?
+- Write a load test plan for the website
+- Explain the difference between unit and integration tests
+- Fix the flaky network in my office

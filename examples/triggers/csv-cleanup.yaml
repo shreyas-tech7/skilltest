@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: csv-cleanup
+should_trigger:
+- This CSV has duplicate rows and weird headers, clean it up
+- Fix the dates in export.csv, some are 11/20/2026 and some are 2026-11-20
+- Trim the whitespace in every cell of this spreadsheet export
+- Make the column names snake_case and unique in this CSV
+- Remove the exact duplicate lines from customers.csv
+- The numbers in this file have commas like 1,200.50, normalize them
+- Clean up this messy Excel export saved as CSV before I load it
+- My CSV has a header row repeated in the middle, fix it
+- Detect the delimiter in this file and rewrite it as clean comma separated values
+- Tidy this data file so pandas can read it without errors
+should_not_trigger:
+- Convert this JSON object to YAML
+- What does CSV stand for?
+- Make a pie chart from these numbers
+- Merge two Python dictionaries
+- Translate this spreadsheet formula to English

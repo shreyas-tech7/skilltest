@@ -252,7 +252,7 @@
       ".venv/bin/pytest tests/test_budget.py",
       ".venv/bin/skilltrial budget examples/skills --json > /dev/null"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F29",
@@ -262,7 +262,7 @@
       "bash scripts/hand_count.sh --check",
       ".venv/bin/pytest tests/test_budget.py -k hand"
     ],
-    "passes": false
+    "passes": true
   },
   {
     "id": "F30",

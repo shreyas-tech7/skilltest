@@ -1,0 +1,14 @@
+{
+  "changelog-writer": {"metadata_chars": 252, "metadata_tokens": 63, "body_chars": 996, "body_tokens": 249, "lines": 44, "files_tokens": 54},
+  "commit-message": {"metadata_chars": 193, "metadata_tokens": 49, "body_chars": 551, "body_tokens": 138, "lines": 22, "files_tokens": 0},
+  "csv-cleanup": {"metadata_chars": 215, "metadata_tokens": 54, "body_chars": 625, "body_tokens": 157, "lines": 24, "files_tokens": 146},
+  "dockerfile-review": {"metadata_chars": 213, "metadata_tokens": 54, "body_chars": 581, "body_tokens": 146, "lines": 23, "files_tokens": 51},
+  "image-resize": {"metadata_chars": 205, "metadata_tokens": 52, "body_chars": 484, "body_tokens": 121, "lines": 22, "files_tokens": 0},
+  "meeting-notes": {"metadata_chars": 189, "metadata_tokens": 48, "body_chars": 500, "body_tokens": 125, "lines": 22, "files_tokens": 37},
+  "mock-data": {"metadata_chars": 188, "metadata_tokens": 47, "body_chars": 525, "body_tokens": 132, "lines": 22, "files_tokens": 0},
+  "regex-builder": {"metadata_chars": 218, "metadata_tokens": 55, "body_chars": 631, "body_tokens": 158, "lines": 22, "files_tokens": 65},
+  "release-notes": {"metadata_chars": 265, "metadata_tokens": 67, "body_chars": 711, "body_tokens": 178, "lines": 38, "files_tokens": 0},
+  "sql-helper": {"metadata_chars": 234, "metadata_tokens": 59, "body_chars": 702, "body_tokens": 176, "lines": 24, "files_tokens": 39},
+  "thumbnail-maker": {"metadata_chars": 226, "metadata_tokens": 57, "body_chars": 459, "body_tokens": 115, "lines": 22, "files_tokens": 0},
+  "unit-test-writer": {"metadata_chars": 196, "metadata_tokens": 49, "body_chars": 550, "body_tokens": 138, "lines": 23, "files_tokens": 0}
+}

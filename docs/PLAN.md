@@ -22,7 +22,7 @@ A small offline tool, `skilltrial`, that lints Agent Skills, estimates their tok
 ## Tasks, in build order
 
 1. Initializer, 12 example skills, flawed variants from a script.
-2. Parser, then the lint rules in five groups (name, description, fields, guidance, style). Each rule gets a fail test on its flawed variant and a pass test on the clean skill.
+2. Parser, then the lint rules from one table. Each rule gets a fail test on its flawed variant and a pass test on the clean skill.
 3. Budget report and the independent wc counts.
 4. Trigger prompts (10 should-trigger and 5 should-not per skill) and the seeded split. Commit the split before any selector code.
 5. BM25 selector, tuning on the tuning set only, metrics and bootstrap.

@@ -161,6 +161,25 @@ def cmd_readme(a) -> int:
     return OK
 
 
+def cmd_llm(a) -> int:
+    from .llm import LLMSelector, MissingRecording, RecordBlocked
+
+    skills = _skills(a.path)
+    prompts, split = _prompts(a)
+    docs = skill_docs(skills)
+    sel = LLMSelector(docs, a.model, a.mode, Path(a.recordings))
+    try:
+        r = result(sel, subset(prompts, split, a.split), a.split, [n for n, _ in docs], model=a.model)
+    except (MissingRecording, RecordBlocked) as e:
+        print(f"skilltrial: llm selector could not run: {e}", file=sys.stderr)
+        return NO_INPUT
+    if a.write:
+        write_json(Path(a.results) / f"trigger_llm_{a.split}.json", r)
+    for k, v in r["metrics"].items():
+        print(f"  {k:<19} {v['value']:.3f}  95% CI {v['ci95'][0]:.3f} to {v['ci95'][1]:.3f}")
+    return OK
+
+
 def _add_prompt_args(s) -> None:
     s.add_argument("--prompts", help="folder of trigger prompt YAML files (default: <path>/../triggers)")
     s.add_argument("--results", default="results", help="results folder (default: results)")
@@ -198,6 +217,15 @@ def build_parser() -> argparse.ArgumentParser:
     s.add_argument("--check", action="store_true", help="exit 1 when a fresh run differs from results/overlap.json")
     s.add_argument("--json", action="store_true")
     s.set_defaults(func=cmd_overlap)
+    s = sub.add_parser("llm", help="optional LLM selector, replay or record mode")
+    s.add_argument("path")
+    _add_prompt_args(s)
+    s.add_argument("--mode", choices=("replay", "record"), default="replay")
+    s.add_argument("--model", default="llama-3.1-8b-instant")
+    s.add_argument("--recordings", default="fixtures/llm")
+    s.add_argument("--split", choices=SPLITS, default="all")
+    s.add_argument("--write", action="store_true", help="write results/trigger_llm_<split>.json")
+    s.set_defaults(func=cmd_llm)
     s = sub.add_parser("readme", help="write the README tables from the results files")
     s.add_argument("--root", default=".")
     s.add_argument("--check", action="store_true", help="exit 1 when the README differs from the results")

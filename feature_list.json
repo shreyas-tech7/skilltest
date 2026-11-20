@@ -1,0 +1,388 @@
+[
+  {
+    "id": "F01",
+    "area": "init",
+    "description": "init.sh installs and runs every test offline; a conftest guard blocks network and is proven by a test (Done 1)",
+    "steps": [
+      "./init.sh",
+      ".venv/bin/pytest tests/test_network_guard.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F02",
+    "area": "examples",
+    "description": "Twelve invented MIT example skills that lint clean",
+    "steps": [
+      ".venv/bin/skilltrial lint examples/skills"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F03",
+    "area": "examples",
+    "description": "Flawed variants: one per lint rule, each with a fixed counterpart, built by a script",
+    "steps": [
+      ".venv/bin/python scripts/make_flawed.py --check",
+      ".venv/bin/pytest tests/test_flawed.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F04",
+    "area": "parse",
+    "description": "Skill discovery and frontmatter parser using yaml.safe_load only",
+    "steps": [
+      ".venv/bin/pytest tests/test_parse.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F05",
+    "area": "lint",
+    "description": "Lint rule SKL001: SKILL.md is missing. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL001"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F06",
+    "area": "lint",
+    "description": "Lint rule SKL002: frontmatter is missing or not a YAML mapping. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL002"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F07",
+    "area": "lint",
+    "description": "Lint rule SKL003: name is missing. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL003"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F08",
+    "area": "lint",
+    "description": "Lint rule SKL004: name is longer than 64 characters. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL004"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F09",
+    "area": "lint",
+    "description": "Lint rule SKL005: name uses characters other than a-z, 0-9 and hyphen. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL005"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F10",
+    "area": "lint",
+    "description": "Lint rule SKL006: name starts or ends with a hyphen. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL006"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F11",
+    "area": "lint",
+    "description": "Lint rule SKL007: name has consecutive hyphens. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL007"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F12",
+    "area": "lint",
+    "description": "Lint rule SKL008: name does not match the directory. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL008"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F13",
+    "area": "lint",
+    "description": "Lint rule SKL009: description is missing or empty. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL009"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F14",
+    "area": "lint",
+    "description": "Lint rule SKL010: description is longer than 1024 characters. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL010"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F15",
+    "area": "lint",
+    "description": "Lint rule SKL011: compatibility is empty or longer than 500 characters. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL011"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F16",
+    "area": "lint",
+    "description": "Lint rule SKL012: metadata is not a map of strings. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL012"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F17",
+    "area": "lint",
+    "description": "Lint rule SKL013: allowed-tools is not a string. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL013"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F18",
+    "area": "lint",
+    "description": "Lint rule SKL101: SKILL.md has more than 500 lines. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL101"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F19",
+    "area": "lint",
+    "description": "Lint rule SKL102: body is over the 5000 token guidance. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL102"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F20",
+    "area": "lint",
+    "description": "Lint rule SKL103: metadata is over the 100 token guidance. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL103"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F21",
+    "area": "lint",
+    "description": "Lint rule SKL104: a referenced file references more files (chain deeper than one level). Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL104"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F22",
+    "area": "lint",
+    "description": "Lint rule SKL105: description does not say when to use the skill. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL105"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F23",
+    "area": "lint",
+    "description": "Lint rule SKL106: a file reference is absolute or leaves the skill folder. Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL106"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F24",
+    "area": "lint",
+    "description": "Lint rule SKL201: frontmatter has a field the spec does not define (style advice). Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL201"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F25",
+    "area": "lint",
+    "description": "Lint rule SKL202: description is very short (style advice). Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL202"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F26",
+    "area": "lint",
+    "description": "Lint rule SKL203: a referenced file does not exist (style advice). Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL203"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F27",
+    "area": "lint",
+    "description": "Lint rule SKL204: body is empty (style advice). Test fails on the flawed example and passes on the fixed one (Done 2)",
+    "steps": [
+      ".venv/bin/pytest tests/test_lint_rules.py -k SKL204"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F28",
+    "area": "budget",
+    "description": "Budget report: metadata, body and each referenced file, chars/4 estimate, flags over guidance (Done 3)",
+    "steps": [
+      ".venv/bin/pytest tests/test_budget.py",
+      ".venv/bin/skilltrial budget examples/skills --json > /dev/null"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F29",
+    "area": "budget",
+    "description": "Budget numbers for every example skill match independent counts made with wc (Done 3)",
+    "steps": [
+      "bash scripts/hand_count.sh --check",
+      ".venv/bin/pytest tests/test_budget.py -k hand"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F30",
+    "area": "triggers",
+    "description": "Trigger prompt sets: 12 skills x 10 should-trigger prompts plus should-not prompts, split into tuning and held-out before tuning",
+    "steps": [
+      ".venv/bin/pytest tests/test_prompts.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F31",
+    "area": "selector",
+    "description": "Offline BM25 baseline selector using only names and descriptions",
+    "steps": [
+      ".venv/bin/pytest tests/test_selector.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F32",
+    "area": "metrics",
+    "description": "Precision, recall and F1 with bootstrap intervals and a confusion table by sibling skill",
+    "steps": [
+      ".venv/bin/pytest tests/test_metrics.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F33",
+    "area": "metrics",
+    "description": "Tuning on the tuning set only, then results for tuning and held-out sets written to results/",
+    "steps": [
+      ".venv/bin/skilltrial trigger examples/skills --check"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F34",
+    "area": "overlap",
+    "description": "Overlap detector flags competing descriptions and lists colliding prompts; finds every planted overlap (Done 5)",
+    "steps": [
+      ".venv/bin/pytest tests/test_overlap.py",
+      ".venv/bin/skilltrial overlap examples/skills --check"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F35",
+    "area": "cli",
+    "description": "skilltrial command with lint, budget, trigger, overlap and readme steps; every exit code documented and tested",
+    "steps": [
+      ".venv/bin/pytest tests/test_cli.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F36",
+    "area": "ci",
+    "description": "GitHub Action (action.yml), CI workflow that lints the example skills, pre-commit hook; actionlint clean (Done 6)",
+    "steps": [
+      ".venv/bin/pytest tests/test_action.py",
+      "$HOME/go/bin/actionlint"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F37",
+    "area": "llm",
+    "description": "Optional LLM selector: replay mode tested offline with recorded fixtures, record mode on a free provider or a logged blocker",
+    "steps": [
+      ".venv/bin/pytest tests/test_llm.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F38",
+    "area": "readme",
+    "description": "README tables and lint output are written by a script from results files, and a test fails on drift (Done 4, 6)",
+    "steps": [
+      ".venv/bin/skilltrial readme --check",
+      ".venv/bin/pytest tests/test_readme_sync.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F39",
+    "area": "compare",
+    "description": "skills-ref agreement report and skill-scanner max severity documented",
+    "steps": [
+      ".venv/bin/pytest tests/test_external_checks.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F40",
+    "area": "quality",
+    "description": "Repo quality bar: README parts, LICENSE, CHANGELOG, CONTRIBUTING, templates, badge, topics, social preview, static demo, DEMO.md, links (Done 7)",
+    "steps": [
+      ".venv/bin/pytest tests/test_repo_quality.py",
+      ".venv/bin/python scripts/check_links.py"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F41",
+    "area": "study",
+    "description": "Study-later kit: WALKTHROUGH, INTERVIEW_QA, DECISIONS (Done 7)",
+    "steps": [
+      ".venv/bin/pytest tests/test_repo_quality.py -k study"
+    ],
+    "passes": false
+  },
+  {
+    "id": "F42",
+    "area": "release",
+    "description": "Release check done and hand-off files written: RELEASE_CHECK, HUMAN_STEPS, COWORK_PROMPT, release SHA (Done 7)",
+    "steps": [
+      ".venv/bin/pytest tests/test_repo_quality.py -k release"
+    ],
+    "passes": false
+  }
+]

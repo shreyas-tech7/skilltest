@@ -4,7 +4,7 @@ All notable changes to this project are listed here.
 
 ## v0.1.0-rc1 (2026-11-20, release candidate, not yet tagged)
 
-Release commit: this commit
+Release commit: e4b84f9423339efe2791fae455d96863e7afcdec
 
 ### Added
 

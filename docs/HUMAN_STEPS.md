@@ -2,7 +2,7 @@
 
 Steps that only Shreyas can do, in order. While Shreyas was away, Claude was allowed to open and merge the pull request, create the pre-release and set the About box and topics. Check each of those on GitHub before you redo it.
 
-Release commit: this commit
+Release commit: e4b84f9423339efe2791fae455d96863e7afcdec
 
 The commits after the release commit only record this SHA and the hand-off notes. Tag the release commit.
 
@@ -31,11 +31,11 @@ Open the Actions tab. The `CI` workflow should finish green on `claude/build-ski
 
 ```bash
 git fetch origin
-git tag -a v0.1.0-rc1 RELEASE_SHA -m "Release candidate 1"
+git tag -a v0.1.0-rc1 e4b84f9423339efe2791fae455d96863e7afcdec -m "Release candidate 1"
 git push origin v0.1.0-rc1
 ```
 
-Use the full SHA from the "Release commit" line above. Or create a pre-release with that tag on GitHub. The README's Action and pre-commit examples point at this tag.
+Or create a pre-release with that tag on GitHub. The README's Action and pre-commit examples point at this tag.
 
 ## 5. Run the secret scan once more
 

@@ -4,7 +4,7 @@
 
 Every feature in `feature_list.json`. The BM25 baseline results are in `results/trigger_bm25_heldout.json` and its siblings. The planted overlaps are all found (`results/overlap.json`). The README tables come from the results files. The release check is in `docs/RELEASE_CHECK.md`.
 
-Release commit: this commit
+Release commit: e4b84f9423339efe2791fae455d96863e7afcdec
 
 The commits after it only record the SHA and the hand-off notes.
 

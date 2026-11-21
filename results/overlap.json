@@ -1,0 +1,834 @@
+{
+ "thresholds": {
+  "similarity": 0.2,
+  "collide_ratio": 0.8,
+  "collide_count": 2
+ },
+ "selector_params": {
+  "k1": 2.0,
+  "b": 1.0,
+  "threshold": 3.25
+ },
+ "n_prompts": 180,
+ "flagged": [
+  [
+   "mock-data",
+   "unit-test-writer"
+  ],
+  [
+   "changelog-writer",
+   "release-notes"
+  ],
+  [
+   "image-resize",
+   "thumbnail-maker"
+  ],
+  [
+   "dockerfile-review",
+   "image-resize"
+  ],
+  [
+   "changelog-writer",
+   "commit-message"
+  ]
+ ],
+ "pairs": [
+  {
+   "a": "mock-data",
+   "b": "unit-test-writer",
+   "similarity": 0.5421,
+   "shared_terms": [
+    "data",
+    "fake",
+    "fixtur",
+    "test",
+    "unit",
+    "user"
+   ],
+   "colliding_prompts": [
+    {
+     "id": "unit-test-writer:pos:03",
+     "text": "Write a fixture for a temporary config file and tests that use it",
+     "gold": "unit-test-writer",
+     "scores": {
+      "unit-test-writer": 5.576,
+      "mock-data": 4.85
+     }
+    },
+    {
+     "id": "unit-test-writer:pos:07",
+     "text": "Make a conftest.py fixture and three tests for the cache class",
+     "gold": "unit-test-writer",
+     "scores": {
+      "mock-data": 4.85,
+      "unit-test-writer": 4.539
+     }
+    }
+   ],
+   "flagged": true
+  },
+  {
+   "a": "changelog-writer",
+   "b": "release-notes",
+   "similarity": 0.468,
+   "shared_terms": [
+    "ask",
+    "chang",
+    "commit",
+    "git",
+    "last",
+    "merg",
+    "note",
+    "pull",
+    "releas",
+    "request",
+    "sinc",
+    "user"
+   ],
+   "colliding_prompts": [
+    {
+     "id": "release-notes:pos:04",
+     "text": "Summarize what changed since the last release for the blog post",
+     "gold": "release-notes",
+     "scores": {
+      "changelog-writer": 9.517,
+      "release-notes": 7.706
+     }
+    },
+    {
+     "id": "release-notes:pos:05",
+     "text": "Write the GitHub release description for v1.8.0",
+     "gold": "release-notes",
+     "scores": {
+      "release-notes": 3.342,
+      "changelog-writer": 3.251
+     }
+    }
+   ],
+   "flagged": true
+  },
+  {
+   "a": "image-resize",
+   "b": "thumbnail-maker",
+   "similarity": 0.3544,
+   "shared_terms": [
+    "imag",
+    "photo",
+    "resiz",
+    "smaller",
+    "user",
+    "version",
+    "want"
+   ],
+   "colliding_prompts": [
+    {
+     "id": "image-resize:pos:00",
+     "text": "Resize this photo to 1200 pixels wide",
+     "gold": "image-resize",
+     "scores": {
+      "image-resize": 4.73,
+      "thumbnail-maker": 4.343
+     }
+    },
+    {
+     "id": "image-resize:pos:09",
+     "text": "Remove the GPS data and resize this photo for the blog",
+     "gold": "image-resize",
+     "scores": {
+      "image-resize": 4.73,
+      "thumbnail-maker": 4.343
+     }
+    }
+   ],
+   "flagged": true
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "image-resize",
+   "similarity": 0.2379,
+   "shared_terms": [
+    "imag",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": true
+  },
+  {
+   "a": "changelog-writer",
+   "b": "commit-message",
+   "similarity": 0.1724,
+   "shared_terms": [
+    "ask",
+    "commit",
+    "git",
+    "user",
+    "writ"
+   ],
+   "colliding_prompts": [
+    {
+     "id": "commit-message:pos:05",
+     "text": "Help me write the git commit for these two changed files",
+     "gold": "commit-message",
+     "scores": {
+      "changelog-writer": 6.261,
+      "commit-message": 5.093
+     }
+    },
+    {
+     "id": "commit-message:neg:00",
+     "text": "Undo my last git commit",
+     "gold": "none",
+     "scores": {
+      "changelog-writer": 4.501,
+      "commit-message": 3.93
+     }
+    }
+   ],
+   "flagged": true
+  },
+  {
+   "a": "meeting-notes",
+   "b": "release-notes",
+   "similarity": 0.1687,
+   "shared_terms": [
+    "ask",
+    "note",
+    "summary",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "thumbnail-maker",
+   "similarity": 0.1503,
+   "shared_terms": [
+    "imag",
+    "size",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "regex-builder",
+   "b": "unit-test-writer",
+   "similarity": 0.1094,
+   "shared_terms": [
+    "test",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "sql-helper",
+   "similarity": 0.1004,
+   "shared_terms": [
+    "ask",
+    "explain",
+    "user",
+    "want",
+    "writ"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "release-notes",
+   "similarity": 0.0907,
+   "shared_terms": [
+    "ask",
+    "commit",
+    "git",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "mock-data",
+   "b": "regex-builder",
+   "similarity": 0.082,
+   "shared_terms": [
+    "need",
+    "test",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "sql-helper",
+   "b": "unit-test-writer",
+   "similarity": 0.0655,
+   "shared_terms": [
+    "ask",
+    "function",
+    "user",
+    "writ"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "mock-data",
+   "similarity": 0.0639,
+   "shared_terms": [
+    "csv"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "meeting-notes",
+   "similarity": 0.0616,
+   "shared_terms": [
+    "ask",
+    "note",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "meeting-notes",
+   "b": "regex-builder",
+   "similarity": 0.0581,
+   "shared_terms": [
+    "note",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "regex-builder",
+   "b": "release-notes",
+   "similarity": 0.0535,
+   "shared_terms": [
+    "note",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "unit-test-writer",
+   "similarity": 0.0442,
+   "shared_terms": [
+    "ask",
+    "user",
+    "writ",
+    "writer"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "sql-helper",
+   "similarity": 0.0418,
+   "shared_terms": [
+    "ask",
+    "slow",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "regex-builder",
+   "similarity": 0.0362,
+   "shared_terms": [
+    "build",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "thumbnail-maker",
+   "similarity": 0.0295,
+   "shared_terms": [
+    "fixed",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "sql-helper",
+   "similarity": 0.0283,
+   "shared_terms": [
+    "ask",
+    "user",
+    "writ"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "unit-test-writer",
+   "similarity": 0.0264,
+   "shared_terms": [
+    "ask",
+    "user",
+    "writ"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "release-notes",
+   "b": "thumbnail-maker",
+   "similarity": 0.026,
+   "shared_terms": [
+    "user",
+    "version"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "regex-builder",
+   "b": "sql-helper",
+   "similarity": 0.0258,
+   "shared_terms": [
+    "need",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "image-resize",
+   "b": "release-notes",
+   "similarity": 0.0256,
+   "shared_terms": [
+    "user",
+    "version"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "release-notes",
+   "similarity": 0.0241,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "image-resize",
+   "similarity": 0.0233,
+   "shared_terms": [
+    "file"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "thumbnail-maker",
+   "similarity": 0.0223,
+   "shared_terms": [
+    "user",
+    "want"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "image-resize",
+   "similarity": 0.022,
+   "shared_terms": [
+    "user",
+    "want"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "mock-data",
+   "b": "sql-helper",
+   "similarity": 0.022,
+   "shared_terms": [
+    "need",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "regex-builder",
+   "similarity": 0.0214,
+   "shared_terms": [
+    "note",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "sql-helper",
+   "b": "thumbnail-maker",
+   "similarity": 0.0206,
+   "shared_terms": [
+    "user",
+    "want"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "image-resize",
+   "b": "sql-helper",
+   "similarity": 0.0203,
+   "shared_terms": [
+    "user",
+    "want"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "dockerfile-review",
+   "similarity": 0.0194,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "meeting-notes",
+   "similarity": 0.0188,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "dockerfile-review",
+   "similarity": 0.0176,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "release-notes",
+   "b": "sql-helper",
+   "similarity": 0.0161,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "meeting-notes",
+   "similarity": 0.0154,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "unit-test-writer",
+   "similarity": 0.0151,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "meeting-notes",
+   "b": "sql-helper",
+   "similarity": 0.0142,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "release-notes",
+   "b": "unit-test-writer",
+   "similarity": 0.0137,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "meeting-notes",
+   "b": "unit-test-writer",
+   "similarity": 0.012,
+   "shared_terms": [
+    "ask",
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "dockerfile-review",
+   "b": "mock-data",
+   "similarity": 0.0086,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "mock-data",
+   "b": "release-notes",
+   "similarity": 0.0077,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "regex-builder",
+   "similarity": 0.0055,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "regex-builder",
+   "b": "thumbnail-maker",
+   "similarity": 0.0053,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "image-resize",
+   "b": "regex-builder",
+   "similarity": 0.0052,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "meeting-notes",
+   "b": "thumbnail-maker",
+   "similarity": 0.0051,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "image-resize",
+   "b": "meeting-notes",
+   "similarity": 0.005,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "image-resize",
+   "similarity": 0.0047,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "mock-data",
+   "similarity": 0.0047,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "meeting-notes",
+   "b": "mock-data",
+   "similarity": 0.0046,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "mock-data",
+   "b": "thumbnail-maker",
+   "similarity": 0.0045,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "image-resize",
+   "b": "mock-data",
+   "similarity": 0.0044,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "mock-data",
+   "similarity": 0.0043,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "thumbnail-maker",
+   "b": "unit-test-writer",
+   "similarity": 0.0041,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "image-resize",
+   "b": "unit-test-writer",
+   "similarity": 0.004,
+   "shared_terms": [
+    "user"
+   ],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "changelog-writer",
+   "b": "csv-cleanup",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "commit-message",
+   "b": "csv-cleanup",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "dockerfile-review",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "meeting-notes",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "regex-builder",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "release-notes",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "sql-helper",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "thumbnail-maker",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  },
+  {
+   "a": "csv-cleanup",
+   "b": "unit-test-writer",
+   "similarity": 0.0,
+   "shared_terms": [],
+   "colliding_prompts": [],
+   "flagged": false
+  }
+ ]
+}

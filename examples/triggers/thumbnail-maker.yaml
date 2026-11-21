@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: thumbnail-maker
+should_trigger:
+- Make thumbnails for every photo in the gallery folder
+- Create 256 by 256 previews of these images
+- Generate square thumbnails for the product shots
+- I need small preview images for the video list
+- Make a thumbnail for each screenshot with a _thumb suffix
+- Center-crop these photos into tiny previews for a grid
+- Build a contact sheet of thumbnails for this folder
+- Thumbnail these 40 images at 128 pixels
+- Make little preview pictures for the blog index page
+- Create gallery thumbnails and an index of which thumbnail belongs to which photo
+should_not_trigger:
+- Design a YouTube thumbnail with big bold text
+- What is a good thumbnail size for a podcast cover?
+- Write alt text for this image
+- Upload my photos to Google Drive
+- Make a slideshow from these pictures

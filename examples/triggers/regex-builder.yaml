@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: regex-builder
+should_trigger:
+- I need a regex that matches US zip codes with an optional +4
+- Write a regular expression to pull every email address out of this text
+- Validate that a password has a digit, a capital and 8 characters, as a regex
+- Why does my regex .* match too much?
+- Make a pattern that matches dates like 2026-11-20 but not 2026-13-40
+- Escape this regex for a JSON string
+- Test this pattern against these sample lines
+- Extract the version number from strings like v1.2.3-beta
+- Give me a regex for hex color codes
+- My regex hangs on long input, is it backtracking?
+should_not_trigger:
+- Split this string on commas in Python
+- What is the history of regular languages in computer science?
+- Find and replace a word in Word
+- Explain what grep stands for
+- Count the words in this paragraph

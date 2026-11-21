@@ -1,0 +1,8 @@
+{
+  "note": "Pairs written to compete on purpose. The overlap detector must flag each one.",
+  "pairs": [
+    {"a": "changelog-writer", "b": "release-notes", "why": "both summarize changes since the last release from commits and pull requests"},
+    {"a": "image-resize", "b": "thumbnail-maker", "why": "both resize photos into smaller versions"},
+    {"a": "mock-data", "b": "unit-test-writer", "why": "both offer fake test data and fixtures for unit tests"}
+  ]
+}

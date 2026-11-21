@@ -1,0 +1,38 @@
+name: skilltrial
+description: Lint Agent Skills against the spec and check their token budgets, offline.
+branding:
+  icon: check-square
+  color: green
+inputs:
+  path:
+    description: Folder that holds the skills (any folder with SKILL.md below it).
+    default: "."
+  strict:
+    description: Set to "true" to fail on warnings too.
+    default: "false"
+  budget:
+    description: Set to "false" to skip the budget report.
+    default: "true"
+runs:
+  using: composite
+  steps:
+    - name: Install skilltrial
+      shell: bash
+      env:
+        ACTION_PATH: ${{ github.action_path }}
+      run: python -m pip install --quiet "$ACTION_PATH"
+    - name: skilltrial lint
+      shell: bash
+      env:
+        SKILLS_PATH: ${{ inputs.path }}
+        STRICT: ${{ inputs.strict }}
+      run: |
+        if [ "$STRICT" = "true" ]; then skilltrial lint "$SKILLS_PATH" --strict; else skilltrial lint "$SKILLS_PATH"; fi
+    - name: skilltrial budget
+      if: inputs.budget == 'true'
+      shell: bash
+      env:
+        SKILLS_PATH: ${{ inputs.path }}
+        STRICT: ${{ inputs.strict }}
+      run: |
+        if [ "$STRICT" = "true" ]; then skilltrial budget "$SKILLS_PATH" --strict; else skilltrial budget "$SKILLS_PATH"; fi

@@ -1,0 +1,12 @@
+$ skilltrial lint examples/skills
+12 skills checked: 0 errors, 0 warnings
+
+$ skilltrial lint examples/flawed   (first 6 lines)
+csv-cleanup: SKL001 error [spec] no SKILL.md in the folder (found skill.md, the name is case sensitive). Fix: add a file named exactly SKILL.md
+commit-message: SKL002 error [spec] SKILL.md does not start with a '---' frontmatter block closed by another '---' line. Fix: start SKILL.md with a YAML mapping between two '---' lines
+image-resize: SKL003 error [spec] name is missing. Fix: add a name field that matches the folder name
+image-resize-and-convert-and-convert-and-convert-and-convert-and-convert-tool: SKL004 error [spec] name has 77 characters, the spec allows 1 to 64. Fix: shorten the name to 64 characters or fewer
+Image_Resize: SKL005 error [spec] name 'Image_Resize' has characters the spec does not allow: 'IR_'. Fix: use lowercase letters, digits and hyphens only
+image-resize-: SKL006 error [spec] name 'image-resize-' starts or ends with a hyphen. Fix: remove the leading or trailing hyphen
+...
+23 skills checked: 13 errors, 12 warnings

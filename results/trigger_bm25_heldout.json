@@ -1,0 +1,750 @@
+{
+ "split": "heldout",
+ "selector": "bm25",
+ "model": "none (BM25, offline)",
+ "params": {
+  "k1": 2.0,
+  "b": 1.0,
+  "threshold": 3.25
+ },
+ "date": "2026-11-20",
+ "bootstrap": {
+  "n": 2000,
+  "seed": 20261120,
+  "interval": "percentile 95%"
+ },
+ "n_prompts": 84,
+ "counts": {
+  "tp": 52,
+  "picks": 58,
+  "positives": 60,
+  "none_prompts": 24,
+  "false_triggers": 3
+ },
+ "metrics": {
+  "precision": {
+   "value": 0.8966,
+   "ci95": [
+    0.8103,
+    0.9667
+   ]
+  },
+  "recall": {
+   "value": 0.8667,
+   "ci95": [
+    0.7759,
+    0.9483
+   ]
+  },
+  "f1": {
+   "value": 0.8814,
+   "ci95": [
+    0.8037,
+    0.9492
+   ]
+  },
+  "false_trigger_rate": {
+   "value": 0.125,
+   "ci95": [
+    0.0,
+    0.2632
+   ]
+  }
+ },
+ "per_skill": {
+  "changelog-writer": {
+   "tp": 5,
+   "fp": 0,
+   "fn": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "commit-message": {
+   "tp": 4,
+   "fp": 0,
+   "fn": 1,
+   "precision": 1.0,
+   "recall": 0.8,
+   "f1": 0.888888888888889
+  },
+  "csv-cleanup": {
+   "tp": 3,
+   "fp": 0,
+   "fn": 2,
+   "precision": 1.0,
+   "recall": 0.6,
+   "f1": 0.7499999999999999
+  },
+  "dockerfile-review": {
+   "tp": 5,
+   "fp": 1,
+   "fn": 0,
+   "precision": 0.8333333333333334,
+   "recall": 1.0,
+   "f1": 0.9090909090909091
+  },
+  "image-resize": {
+   "tp": 3,
+   "fp": 0,
+   "fn": 2,
+   "precision": 1.0,
+   "recall": 0.6,
+   "f1": 0.7499999999999999
+  },
+  "meeting-notes": {
+   "tp": 4,
+   "fp": 0,
+   "fn": 1,
+   "precision": 1.0,
+   "recall": 0.8,
+   "f1": 0.888888888888889
+  },
+  "mock-data": {
+   "tp": 5,
+   "fp": 2,
+   "fn": 0,
+   "precision": 0.7142857142857143,
+   "recall": 1.0,
+   "f1": 0.8333333333333333
+  },
+  "regex-builder": {
+   "tp": 5,
+   "fp": 0,
+   "fn": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  "release-notes": {
+   "tp": 5,
+   "fp": 2,
+   "fn": 0,
+   "precision": 0.7142857142857143,
+   "recall": 1.0,
+   "f1": 0.8333333333333333
+  },
+  "sql-helper": {
+   "tp": 3,
+   "fp": 0,
+   "fn": 2,
+   "precision": 1.0,
+   "recall": 0.6,
+   "f1": 0.7499999999999999
+  },
+  "thumbnail-maker": {
+   "tp": 5,
+   "fp": 1,
+   "fn": 0,
+   "precision": 0.8333333333333334,
+   "recall": 1.0,
+   "f1": 0.9090909090909091
+  },
+  "unit-test-writer": {
+   "tp": 5,
+   "fp": 0,
+   "fn": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  }
+ },
+ "confusion": {
+  "changelog-writer": {
+   "changelog-writer": 5
+  },
+  "commit-message": {
+   "commit-message": 4,
+   "none": 1
+  },
+  "csv-cleanup": {
+   "csv-cleanup": 3,
+   "mock-data": 2
+  },
+  "dockerfile-review": {
+   "dockerfile-review": 5
+  },
+  "image-resize": {
+   "image-resize": 3,
+   "none": 1,
+   "thumbnail-maker": 1
+  },
+  "meeting-notes": {
+   "meeting-notes": 4,
+   "none": 1
+  },
+  "mock-data": {
+   "mock-data": 5
+  },
+  "none": {
+   "dockerfile-review": 1,
+   "none": 21,
+   "release-notes": 2
+  },
+  "regex-builder": {
+   "regex-builder": 5
+  },
+  "release-notes": {
+   "release-notes": 5
+  },
+  "sql-helper": {
+   "none": 2,
+   "sql-helper": 3
+  },
+  "thumbnail-maker": {
+   "thumbnail-maker": 5
+  },
+  "unit-test-writer": {
+   "unit-test-writer": 5
+  }
+ },
+ "top_confusions": [
+  [
+   "csv-cleanup",
+   "mock-data",
+   2
+  ],
+  [
+   "none",
+   "release-notes",
+   2
+  ],
+  [
+   "sql-helper",
+   "none",
+   2
+  ],
+  [
+   "commit-message",
+   "none",
+   1
+  ],
+  [
+   "image-resize",
+   "none",
+   1
+  ],
+  [
+   "image-resize",
+   "thumbnail-maker",
+   1
+  ],
+  [
+   "meeting-notes",
+   "none",
+   1
+  ],
+  [
+   "none",
+   "dockerfile-review",
+   1
+  ]
+ ],
+ "predictions": [
+  {
+   "id": "changelog-writer:pos:00",
+   "gold": "changelog-writer",
+   "pred": "changelog-writer",
+   "score": 9.0521
+  },
+  {
+   "id": "changelog-writer:pos:02",
+   "gold": "changelog-writer",
+   "pred": "changelog-writer",
+   "score": 11.214
+  },
+  {
+   "id": "changelog-writer:pos:03",
+   "gold": "changelog-writer",
+   "pred": "changelog-writer",
+   "score": 4.8419
+  },
+  {
+   "id": "changelog-writer:pos:05",
+   "gold": "changelog-writer",
+   "pred": "changelog-writer",
+   "score": 4.8419
+  },
+  {
+   "id": "changelog-writer:pos:07",
+   "gold": "changelog-writer",
+   "pred": "changelog-writer",
+   "score": 5.4788
+  },
+  {
+   "id": "changelog-writer:neg:02",
+   "gold": "none",
+   "pred": "release-notes",
+   "score": 4.4997
+  },
+  {
+   "id": "changelog-writer:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "commit-message:pos:00",
+   "gold": "commit-message",
+   "pred": "commit-message",
+   "score": 10.1233
+  },
+  {
+   "id": "commit-message:pos:03",
+   "gold": "commit-message",
+   "pred": "none",
+   "score": 2.4926
+  },
+  {
+   "id": "commit-message:pos:06",
+   "gold": "commit-message",
+   "pred": "commit-message",
+   "score": 6.5947
+  },
+  {
+   "id": "commit-message:pos:07",
+   "gold": "commit-message",
+   "pred": "commit-message",
+   "score": 6.5947
+  },
+  {
+   "id": "commit-message:pos:09",
+   "gold": "commit-message",
+   "pred": "commit-message",
+   "score": 12.4894
+  },
+  {
+   "id": "commit-message:neg:03",
+   "gold": "none",
+   "pred": "none",
+   "score": 3.2443
+  },
+  {
+   "id": "commit-message:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.4926
+  },
+  {
+   "id": "csv-cleanup:pos:01",
+   "gold": "csv-cleanup",
+   "pred": "csv-cleanup",
+   "score": 8.2225
+  },
+  {
+   "id": "csv-cleanup:pos:03",
+   "gold": "csv-cleanup",
+   "pred": "mock-data",
+   "score": 3.8257
+  },
+  {
+   "id": "csv-cleanup:pos:05",
+   "gold": "csv-cleanup",
+   "pred": "csv-cleanup",
+   "score": 5.8335
+  },
+  {
+   "id": "csv-cleanup:pos:08",
+   "gold": "csv-cleanup",
+   "pred": "csv-cleanup",
+   "score": 3.7226
+  },
+  {
+   "id": "csv-cleanup:pos:09",
+   "gold": "csv-cleanup",
+   "pred": "mock-data",
+   "score": 3.3049
+  },
+  {
+   "id": "csv-cleanup:neg:01",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.9272
+  },
+  {
+   "id": "csv-cleanup:neg:03",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.111
+  },
+  {
+   "id": "dockerfile-review:pos:00",
+   "gold": "dockerfile-review",
+   "pred": "dockerfile-review",
+   "score": 7.1483
+  },
+  {
+   "id": "dockerfile-review:pos:01",
+   "gold": "dockerfile-review",
+   "pred": "dockerfile-review",
+   "score": 4.5379
+  },
+  {
+   "id": "dockerfile-review:pos:05",
+   "gold": "dockerfile-review",
+   "pred": "dockerfile-review",
+   "score": 5.5541
+  },
+  {
+   "id": "dockerfile-review:pos:07",
+   "gold": "dockerfile-review",
+   "pred": "dockerfile-review",
+   "score": 3.8978
+  },
+  {
+   "id": "dockerfile-review:pos:08",
+   "gold": "dockerfile-review",
+   "pred": "dockerfile-review",
+   "score": 8.2367
+  },
+  {
+   "id": "dockerfile-review:neg:01",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.2313
+  },
+  {
+   "id": "dockerfile-review:neg:03",
+   "gold": "none",
+   "pred": "dockerfile-review",
+   "score": 4.3389
+  },
+  {
+   "id": "image-resize:pos:00",
+   "gold": "image-resize",
+   "pred": "image-resize",
+   "score": 4.7295
+  },
+  {
+   "id": "image-resize:pos:03",
+   "gold": "image-resize",
+   "pred": "none",
+   "score": 2.2313
+  },
+  {
+   "id": "image-resize:pos:06",
+   "gold": "image-resize",
+   "pred": "image-resize",
+   "score": 9.3612
+  },
+  {
+   "id": "image-resize:pos:08",
+   "gold": "image-resize",
+   "pred": "thumbnail-maker",
+   "score": 4.0502
+  },
+  {
+   "id": "image-resize:pos:09",
+   "gold": "image-resize",
+   "pred": "image-resize",
+   "score": 4.7295
+  },
+  {
+   "id": "image-resize:neg:01",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "image-resize:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.589
+  },
+  {
+   "id": "meeting-notes:pos:00",
+   "gold": "meeting-notes",
+   "pred": "meeting-notes",
+   "score": 15.3556
+  },
+  {
+   "id": "meeting-notes:pos:01",
+   "gold": "meeting-notes",
+   "pred": "meeting-notes",
+   "score": 4.491
+  },
+  {
+   "id": "meeting-notes:pos:02",
+   "gold": "meeting-notes",
+   "pred": "meeting-notes",
+   "score": 7.7198
+  },
+  {
+   "id": "meeting-notes:pos:06",
+   "gold": "meeting-notes",
+   "pred": "none",
+   "score": 2.4399
+  },
+  {
+   "id": "meeting-notes:pos:08",
+   "gold": "meeting-notes",
+   "pred": "meeting-notes",
+   "score": 4.491
+  },
+  {
+   "id": "meeting-notes:neg:01",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.4399
+  },
+  {
+   "id": "meeting-notes:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.051
+  },
+  {
+   "id": "mock-data:pos:00",
+   "gold": "mock-data",
+   "pred": "mock-data",
+   "score": 8.1646
+  },
+  {
+   "id": "mock-data:pos:02",
+   "gold": "mock-data",
+   "pred": "mock-data",
+   "score": 8.7248
+  },
+  {
+   "id": "mock-data:pos:05",
+   "gold": "mock-data",
+   "pred": "mock-data",
+   "score": 9.3121
+  },
+  {
+   "id": "mock-data:pos:07",
+   "gold": "mock-data",
+   "pred": "mock-data",
+   "score": 3.8257
+  },
+  {
+   "id": "mock-data:pos:08",
+   "gold": "mock-data",
+   "pred": "mock-data",
+   "score": 3.3049
+  },
+  {
+   "id": "mock-data:neg:00",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.111
+  },
+  {
+   "id": "mock-data:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "regex-builder:pos:01",
+   "gold": "regex-builder",
+   "pred": "regex-builder",
+   "score": 6.5084
+  },
+  {
+   "id": "regex-builder:pos:04",
+   "gold": "regex-builder",
+   "pred": "regex-builder",
+   "score": 4.3389
+  },
+  {
+   "id": "regex-builder:pos:05",
+   "gold": "regex-builder",
+   "pred": "regex-builder",
+   "score": 7.5894
+  },
+  {
+   "id": "regex-builder:pos:06",
+   "gold": "regex-builder",
+   "pred": "regex-builder",
+   "score": 7.8266
+  },
+  {
+   "id": "regex-builder:pos:07",
+   "gold": "regex-builder",
+   "pred": "regex-builder",
+   "score": 4.3389
+  },
+  {
+   "id": "regex-builder:neg:00",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.1695
+  },
+  {
+   "id": "regex-builder:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "release-notes:pos:01",
+   "gold": "release-notes",
+   "pred": "release-notes",
+   "score": 10.9636
+  },
+  {
+   "id": "release-notes:pos:03",
+   "gold": "release-notes",
+   "pred": "release-notes",
+   "score": 11.5467
+  },
+  {
+   "id": "release-notes:pos:06",
+   "gold": "release-notes",
+   "pred": "release-notes",
+   "score": 4.6851
+  },
+  {
+   "id": "release-notes:pos:07",
+   "gold": "release-notes",
+   "pred": "release-notes",
+   "score": 3.6735
+  },
+  {
+   "id": "release-notes:pos:08",
+   "gold": "release-notes",
+   "pred": "release-notes",
+   "score": 5.11
+  },
+  {
+   "id": "release-notes:neg:00",
+   "gold": "none",
+   "pred": "release-notes",
+   "score": 3.3419
+  },
+  {
+   "id": "release-notes:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "sql-helper:pos:02",
+   "gold": "sql-helper",
+   "pred": "sql-helper",
+   "score": 4.542
+  },
+  {
+   "id": "sql-helper:pos:03",
+   "gold": "sql-helper",
+   "pred": "none",
+   "score": 2.1695
+  },
+  {
+   "id": "sql-helper:pos:06",
+   "gold": "sql-helper",
+   "pred": "none",
+   "score": 2.2308
+  },
+  {
+   "id": "sql-helper:pos:08",
+   "gold": "sql-helper",
+   "pred": "sql-helper",
+   "score": 5.8335
+  },
+  {
+   "id": "sql-helper:pos:09",
+   "gold": "sql-helper",
+   "pred": "sql-helper",
+   "score": 4.2214
+  },
+  {
+   "id": "sql-helper:neg:00",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.2313
+  },
+  {
+   "id": "sql-helper:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "thumbnail-maker:pos:01",
+   "gold": "thumbnail-maker",
+   "pred": "thumbnail-maker",
+   "score": 5.4519
+  },
+  {
+   "id": "thumbnail-maker:pos:03",
+   "gold": "thumbnail-maker",
+   "pred": "thumbnail-maker",
+   "score": 7.7487
+  },
+  {
+   "id": "thumbnail-maker:pos:04",
+   "gold": "thumbnail-maker",
+   "pred": "thumbnail-maker",
+   "score": 6.3284
+  },
+  {
+   "id": "thumbnail-maker:pos:06",
+   "gold": "thumbnail-maker",
+   "pred": "thumbnail-maker",
+   "score": 4.0317
+  },
+  {
+   "id": "thumbnail-maker:pos:07",
+   "gold": "thumbnail-maker",
+   "pred": "thumbnail-maker",
+   "score": 6.0923
+  },
+  {
+   "id": "thumbnail-maker:neg:02",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.6673
+  },
+  {
+   "id": "thumbnail-maker:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  },
+  {
+   "id": "unit-test-writer:pos:00",
+   "gold": "unit-test-writer",
+   "pred": "unit-test-writer",
+   "score": 8.5062
+  },
+  {
+   "id": "unit-test-writer:pos:01",
+   "gold": "unit-test-writer",
+   "pred": "unit-test-writer",
+   "score": 12.5074
+  },
+  {
+   "id": "unit-test-writer:pos:02",
+   "gold": "unit-test-writer",
+   "pred": "unit-test-writer",
+   "score": 5.0381
+  },
+  {
+   "id": "unit-test-writer:pos:04",
+   "gold": "unit-test-writer",
+   "pred": "unit-test-writer",
+   "score": 5.3583
+  },
+  {
+   "id": "unit-test-writer:pos:06",
+   "gold": "unit-test-writer",
+   "pred": "unit-test-writer",
+   "score": 14.6808
+  },
+  {
+   "id": "unit-test-writer:neg:01",
+   "gold": "none",
+   "pred": "none",
+   "score": 2.9272
+  },
+  {
+   "id": "unit-test-writer:neg:04",
+   "gold": "none",
+   "pred": "none",
+   "score": 0.0
+  }
+ ],
+ "split_seed": 20261120
+}

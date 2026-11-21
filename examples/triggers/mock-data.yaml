@@ -1,0 +1,19 @@
+# Synthetic prompts, written for skilltrial. Some are ambiguous at the edges on purpose.
+skill: mock-data
+should_trigger:
+- Generate 100 fake customers with names and emails as JSON
+- I need seed data for the orders and users tables
+- Make mock data for a demo of the dashboard
+- Create fake addresses for testing the shipping form
+- Give me a CSV of 50 fake products with prices
+- Generate test fixtures with consistent user and order IDs
+- Make sample data for the API docs examples
+- Create fake employee records for the HR app demo
+- I need dummy data that looks real but is not
+- Seed the dev database with fake but realistic rows
+should_not_trigger:
+- Anonymize our real customer database for analytics
+- What is a mock object in Python?
+- Explain synthetic data in machine learning
+- Get the real sales numbers from last quarter
+- Make fun of my friend's code

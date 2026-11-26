@@ -379,7 +379,7 @@
   {
     "id": "F42",
     "area": "release",
-    "description": "Release check done and hand-off files written: RELEASE_CHECK, HUMAN_STEPS, COWORK_PROMPT, release SHA (Done 7)",
+    "description": "Release check done and hand-off files written: RELEASE_CHECK, HUMAN_STEPS, release SHA (Done 7)",
     "steps": [
       ".venv/bin/pytest tests/test_repo_quality.py -k release"
     ],

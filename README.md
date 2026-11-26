@@ -2,10 +2,10 @@
 
 [![CI](https://github.com/shreyas-tech7/skilltest/actions/workflows/ci.yml/badge.svg)](https://github.com/shreyas-tech7/skilltest/actions/workflows/ci.yml)
 
-**Status:** v0.1.0-rc1, a release candidate. It works offline and every number below comes from a committed results file. The repo is private and named `skilltest`. The package and command are `skilltrial`, because the name `skilltest` is taken on npm.
+**Status:** v0.1.0-rc1, a release candidate. It works offline and every number below comes from a committed results file. The repo is named `skilltest`. The package and command are `skilltrial`, because the name `skilltest` is taken on npm.
 
 <!-- BEGIN:headline -->
-Held-out trigger F1 0.881 (95% CI 0.804 to 0.949) for the offline BM25 baseline on 84 synthetic prompts. Planted overlaps found: 3 of 3.
+Held-out trigger F1 0.881 (95% CI 0.804 to 0.949) for the offline BM25 baseline on 84 synthetic prompts. Overlaps found among the ones planted for this test: 3 of 3.
 <!-- END:headline -->
 
 ## The problem
@@ -169,8 +169,6 @@ BM25 and lint run locally. No API calls, so the cost is zero.
 <!-- END:cost -->
 
 ## 10-minute run guide
-
-The repo is private for now, so the clone works only for people with access until it goes public.
 
 ```bash
 git clone https://github.com/shreyas-tech7/skilltest.git

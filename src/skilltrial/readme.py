@@ -136,7 +136,7 @@ def block_headline(root: Path) -> str:
     found = len(planted & {tuple(p) for p in rep["flagged"]})
     return (f"Held-out trigger F1 {h['metrics']['f1']['value']:.3f} (95% CI {h['metrics']['f1']['ci95'][0]:.3f} to "
             f"{h['metrics']['f1']['ci95'][1]:.3f}) for the offline BM25 baseline on {h['n_prompts']} synthetic prompts. "
-            f"Planted overlaps found: {found} of {len(planted)}.\n")
+            f"Overlaps found among the ones planted for this test: {found} of {len(planted)}.\n")
 
 
 def block_setup(root: Path) -> str:

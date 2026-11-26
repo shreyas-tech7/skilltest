@@ -4,11 +4,11 @@ Steps that only Shreyas can do, in order. While Shreyas was away, Claude was all
 
 Release commit: e4b84f9423339efe2791fae455d96863e7afcdec
 
-The commits after the release commit only record this SHA and the hand-off notes. Tag the release commit.
+The release commit is tagged `v0.1.0-rc1`. Later commits tidy the repo for public release.
 
 ## 1. Create main on GitHub, if it is missing
 
-The GitHub repo had no `main` branch when the build started, so the build branched from `main` in the local backup remote. That commit is `1e74ec46181ffc8fb315288ea5ade3386d2d350d` (the initial README stub), and it is the first commit of `claude/build-skilltest`, so GitHub already has it. If `main` is still missing, create it from that commit before you open the pull request:
+The GitHub repo had no `main` branch when the build started, so the build branched from `main` in the build session's local copy. That commit is `1e74ec46181ffc8fb315288ea5ade3386d2d350d` (the initial README stub), and it is the first commit of `claude/build-skilltest`, so GitHub already has it. If `main` is still missing, create it from that commit before you open the pull request:
 
 ```bash
 git fetch origin
@@ -68,7 +68,7 @@ This is the step the build could not do. The proxy blocked the provider (`BLOCKE
 
 ## 8. Make the repo public
 
-All history becomes public at that moment. Read `docs/build/BUILD_PROMPT.md` first (step 11).
+Done 2026-11-26: the repo is public.
 
 ## 9. Turn on Pages
 
@@ -93,7 +93,7 @@ In each repo that holds skills, add the step from the README's GitHub Action sec
 
 ## 14. Decide whether the build prompt stays public
 
-`docs/build/BUILD_PROMPT.md` holds the full prompt the agents followed. Keep it, trim it or remove it before the repo goes public.
+`docs/build/BUILD_PROMPT.md` holds the full prompt the agents followed. Keep it, trim it or remove it.
 
 ## 15. Update the human checks in the README
 

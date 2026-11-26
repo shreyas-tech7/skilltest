@@ -4,7 +4,7 @@ One line per choice: the options and the reason.
 
 - 2026-11-20 Name: picked `skilltrial` for the package and the command. `skilltest` is free on PyPI but taken on npm by a package that calls itself "The testing framework for Agent Skills" (version 0.10.0), so it fails the section 4 rule. `skilltrial` answered 404 on PyPI and npm, and a web search found no known GitHub project with that name. The repo keeps the name `skilltest` until Shreyas renames it (docs/HUMAN_STEPS.md).
 - 2026-11-20 Spec source: agentskills.io answered 403 through the proxy, so the spec came from raw.githubusercontent.com (agentskills/agentskills main, docs/specification.mdx, fetched 2026-11-20, sha256 in docs/SPEC.md).
-- 2026-11-20 Base branch: origin on GitHub was empty, so `claude/build-skilltest` starts from `main` in the backup remote (commit 1e74ec4, the README commit). The coordinator merges through a PR.
+- 2026-11-20 Base branch: origin on GitHub was empty, so `claude/build-skilltest` starts from `main` in the build session's local copy (commit 1e74ec4, the README commit). The coordinator merges through a PR.
 - 2026-11-20 Severity: "must" rules from the spec are errors. "Should" and "recommended" lines from the spec are warnings labeled spec guidance. Anything the spec does not say is a warning labeled style advice, as the brief asks.
 - 2026-11-20 Unknown frontmatter fields: the spec lists six fields but does not forbid others, so an unknown field is style advice (SKL201), not an error.
 - 2026-11-20 A missing referenced file is style advice (SKL203). The spec does not say it, even though it is a real defect.

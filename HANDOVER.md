@@ -6,7 +6,7 @@ Every feature in `feature_list.json`. The BM25 baseline results are in `results/
 
 Release commit: e4b84f9423339efe2791fae455d96863e7afcdec
 
-The commits after it only record the SHA and the hand-off notes.
+It is tagged `v0.1.0-rc1`. Later commits tidy the repo for public release.
 
 ## Not done
 

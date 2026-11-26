@@ -55,7 +55,7 @@ Fixed after the outside check:
 - Run from the repo root, `trigger` on someone else's skills used the settings tuned on the examples. Tuned settings now apply only to the exact skill set they were tuned on, and other runs say they are untuned. A test covers both cases.
 - A tiny split printed an interval with no warning. `trigger` now warns when a split has too few prompts.
 - `test_guard_allows_loopback` could hang if loopback was down. It now has timeouts and a daemon thread.
-- The README said the lint block came from CI. It now says the block is the same command run locally, and the run guide says the repo is private for now and that the strict flawed run exits 1 on purpose.
+- The README said the lint block came from CI. It now says the block is the same command run locally, and the run guide says that the strict flawed run exits 1 on purpose.
 - `DECISIONS.md` said the split was half and half. It now gives the real per-skill counts.
 
 Logged, not changed:
